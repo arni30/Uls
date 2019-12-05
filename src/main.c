@@ -1,7 +1,6 @@
 #include "../inc/uls.h"
 
-int main() {
-    printf("%s", "hallo world");
-    printf("%s", "arni30");
+int main(int argc, char **argv) {
+    mx_error_flag(argc,argv);
     return 0;
 }
