@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv) {
     mx_error_flag(argc,argv);
-    char **arr= mx_ls_no_flags("../Uls");
+    char **arr= mx_ls_no_flags("../");
     while (*arr) {
         mx_print_dir(*arr);
         arr++;
