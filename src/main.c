@@ -2,10 +2,14 @@
 
 int main(int argc, char **argv) {
     mx_error_flag(argc,argv);
-    char **arr= mx_ls_no_flags("../Uls");
-    while (*arr) {
-        mx_print_dir(*arr);
-        arr++;
+    if (argc == 1) {
+        mx_ls_no_flags(".");
+    }
+    if (mx_find_flag(argc, argv, '1') == 1){
+        mx_ls_flag_1(".");
+    }
+    if (mx_find_flag(argc, argv, 'a') == 1) {
+        mx_ls_flag_a(".");
     }
     //system("leaks -q uls");
     return 0;

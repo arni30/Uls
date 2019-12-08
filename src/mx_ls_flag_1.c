@@ -1,12 +1,11 @@
 #include "../inc/uls.h"
 
-char **mx_ls_no_flag(char *current_position) {
-    DIR *dp;
+void mx_ls_flag_1(char *current_position) {    
     struct dirent *ep = NULL;
-    char **arr = malloc(1000 * sizeof(char*));
+    char **arr = malloc(13 * sizeof(char*));
+    DIR *dp = opendir(current_position);
     int count = 0;
 
-    dp = opendir(current_position);
     if (dp != NULL) {
         while ((ep = readdir(dp)) != NULL) {
             if (ep->d_name[0] != '.') {
@@ -17,6 +16,7 @@ char **mx_ls_no_flag(char *current_position) {
         }
     }
     closedir(dp);
-    return arr;  
+    //mx_realloc(arr, count);
+    mx_sort_dir(arr,count);
+    //mx_loop_print(arr, "\n");
 }
-// ls -a
