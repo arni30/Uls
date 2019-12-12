@@ -7,8 +7,9 @@ void mx_error_flag(int argc, char **flags){
     int flag = 0;
 
     for (int i = 1; i < argc; i++) {
-        if (flags[i][0] != '-'){
+        if (flags[i][0] != '-' && opendir(flags[i]) == NULL){
             mx_error_dir(flags, i);
+            exit(1);
         }  
         j = 1;
         while (flags[i][j] != '\0'){

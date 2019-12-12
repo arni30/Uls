@@ -8,14 +8,13 @@
 #include <stdbool.h>
 #include <string.h>
 #include <fcntl.h>
-#include <malloc.h>
+#include <malloc/malloc.h>
 
 typedef struct  s_list {
     void  *data;
     struct s_list *next;
 }t_list;
 
-void mx_print_error(char *str);
 int mx_minimal(int a, int b);
 int mx_maximum(int a, int b);
 int mx_count_arr_el(char **arr);
