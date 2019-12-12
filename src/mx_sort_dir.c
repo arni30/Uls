@@ -1,8 +1,8 @@
 #include "../inc/uls.h"
 
 void mx_sort_dir(char **dir, int count){
-    for (int i = 0; i < count; i++) {
-        for (int j = i + 1; j <= count; j++) {
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i + 1; j < count; j++) {
             if (mx_strcmp(dir[i], dir[j]) > 0){
                 mx_swaps_arr(dir, i, j);
             }

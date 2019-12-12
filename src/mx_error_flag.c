@@ -3,14 +3,15 @@
 void mx_error_flag(int argc, char **flags){
     char *us_f = "ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1";
     int count = 0;
+    int j = 0;
     int flag = 0;
-    int j = 1;
 
     for (int i = 1; i < argc; i++) {
-        j = 1;
-        if (flags[i][0] != '-'){
+        if (flags[i][0] != '-' && opendir(flags[i]) == NULL){
             mx_error_dir(flags, i);
+            exit(1);
         }  
+        j = 1;
         while (flags[i][j] != '\0'){
             count = 0;
             flag = 0;
@@ -21,10 +22,10 @@ void mx_error_flag(int argc, char **flags){
                 }
                 count++;
             }
-            if (flag == 0) {
-                mx_print_error_flag(i, j,flags);
+            if(flag == 0){
+                mx_print_error_flag(i, j, flags);
             }
-            j++;
+            j++;          
         }
     }
 }
