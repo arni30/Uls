@@ -13,6 +13,7 @@ char **mx_ls_show_directory(char *dir) {
                 count++;
             }
         }
+
     }
     closedir(dp);
     arr = mx_realloc(arr, count * sizeof(char*));
