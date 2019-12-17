@@ -15,10 +15,6 @@ typedef struct  s_list {
     struct s_list *next;
 }t_list;
 
-<<<<<<< HEAD
-=======
-void mx_print_error(char *str);
->>>>>>> 096bc3070d76f26a3dd2f84a93abf526e4cad386
 int mx_minimal(int a, int b);
 int mx_maximum(int a, int b);
 int mx_count_arr_el(char **arr);

@@ -17,10 +17,5 @@ char **mx_ls_flag__A(char *current_position) {
     closedir(dp);
     arr = mx_realloc(arr, count * sizeof(char*));
     mx_sort_dir(arr,count);
-<<<<<<< HEAD
-    // mx_output(arr);
-    // mx_free_void_arr((void**)arr, count);
-=======
->>>>>>> 096bc3070d76f26a3dd2f84a93abf526e4cad386
     return arr;
 }
