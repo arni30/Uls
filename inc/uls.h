@@ -22,16 +22,23 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <sys/ioctl.h>
+#include <limits.h>
 
-void mx_ls_flag_G(char *current_position);
+typedef struct t_array {
+    char **names;
+    unsigned char *type;
+} t_array;
+
+
+void mx_ls_flag_G(char *current_position, t_array *dir);
 void mx_print_dir_new_line(char **arr, int delim, int count, int win_width);
 char **mx_ls_show_directory(char *dir);
-char **mx_ls_flag__A(char *current_position);
+void mx_ls_flag__A(char *current_position, t_array *dir);
 void mx_free_void_arr(void **arr, int lines);
 int mx_find_flag(int argc, char **flags, char flag);
 void mx_loop_print(int argc,char **arr, char **argv);
-char **mx_ls_flag_a(char *current_position);
-char **mx_ls_no_flags(char *current_position);
+void mx_ls_flag_a(char *current_position, t_array *dir);
+void mx_ls_no_flags(char *current_position, t_array *dir);
 void mx_print_dir(const char *s, int delim);
 void mx_print_error(char *str);
 void mx_print_error_flag(int index1, int index2, char **flags);

@@ -1,8 +1,8 @@
 #include "../inc/uls.h"
 
-void mx_ls_flag_G(char *current_position){
+void mx_ls_flag_G(char *current_position, t_array *dir){
     struct dirent *ep = NULL;
-    char **arr = malloc(268435455*sizeof(char*));
+    dir = malloc(sizeof(t_array));
     DIR *dp = opendir(current_position);
     int count = 0;
 
@@ -10,16 +10,16 @@ void mx_ls_flag_G(char *current_position){
         while ((ep = readdir(dp)) != NULL) {
             mx_printstr(ep->d_name);
             mx_printstr("   ");
-            printf("%u8\n",ep->d_type);
+            printf("%u\n",ep->d_type);
             
             if (ep->d_name[0] != '.') {
-                arr[count] = mx_strdup(ep->d_name);
+                dir->names[count] = mx_strdup(ep->d_name);
                 count++;
             }
         }
     }
     closedir(dp);
-    arr = mx_realloc(arr, count * sizeof(char*));
-    mx_sort_dir(arr,count);
+    dir = mx_realloc(dir, count * sizeof(t_array*));
+    mx_sort_dir(dir->names, count);
     //return arr;
 }

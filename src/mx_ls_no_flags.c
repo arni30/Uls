@@ -1,21 +1,22 @@
 #include "../inc/uls.h"
 
-char **mx_ls_no_flags(char *current_position) {    
+void mx_ls_no_flags(char *current_position, t_array *dir) {    
     struct dirent *ep = NULL;
-    char **arr = malloc(268435455*sizeof(char*));
     DIR *dp = opendir(current_position);
     int count = 0;
-
+    
     if (dp != NULL) {
         while ((ep = readdir(dp)) != NULL) {
             if (ep->d_name[0] != '.') {
-                arr[count] = mx_strdup(ep->d_name);
+                printf("%d  ",mx_strlen(ep->d_name));
+                printf("%s\n", ep->d_name);
+                dir->type[count] = ep->d_type;
+                dir->names[count] = mx_strdup(ep->d_name);
                 count++;
             }
         }
     }
     closedir(dp);
-    arr = mx_realloc(arr, count * sizeof(char*));
-    mx_sort_dir(arr,count);
-    return arr;
+    //dir = mx_realloc(dir, count * sizeof(t_array*));
+    mx_sort_dir(dir->names, count);
 }
