@@ -38,11 +38,13 @@ void mx_print_dir_new_line(char **arr, int delim, int count, int win_width) {
     int e_col = 0;
     int k = 0;
 
-    while (count % e_line != 0 && count % e_line != e_line - 1){
-        if(count % e_line != 0 || count % e_line != e_line - 1){
-            break;
+    if (count > e_line) {
+        while (count % e_line != 0 && count % e_line != e_line - 1){
+            if(count % e_line != 0 || count % e_line != e_line - 1){
+                break;
+            }
+            e_line--;
         }
-        e_line--;
     }
     e_col = (count / e_line);    
     if (count % e_line != 0 ) {
@@ -52,12 +54,15 @@ void mx_print_dir_new_line(char **arr, int delim, int count, int win_width) {
         k = e_line;
         i = y;
         while (k != 1) {
+            if(arr[i + 1] == NULL){
+                break; //without last space
+            }
             mx_print_dir(arr[i], delim);
             i += e_col;
             k--;
         }
         if(arr[i] != NULL){
-        write(1, arr[i], mx_strlen(arr[i])); //without last space
+            write(1, arr[i], mx_strlen(arr[i])); //without last space
         }
         mx_printchar('\n');
         y++;
