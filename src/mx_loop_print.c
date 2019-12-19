@@ -6,7 +6,7 @@ void mx_loop_print(int argc,char **arr, char **argv) {
     int i = 0;
     int win_width; 
 
-    while (arr[count]) {
+ while (arr[count]) {
         i = 0;
         while(arr[count][i]){
             i++;
