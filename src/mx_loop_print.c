@@ -11,7 +11,10 @@ void mx_loop_print(int argc,char **arr, char **argv) {
         while(arr[count][i]){
             i++;
         }
-        if(i >= delim) {
+        if (mx_find_flag(argc , argv, 'G') == 1 && i >= delim) {
+            delim = i + 1;
+        }
+        else if(i >= delim) {
             delim = (i / 8) * 8 + 8;
         }
         count++;

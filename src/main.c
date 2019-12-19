@@ -9,7 +9,8 @@ int main(int argc, char **argv) {
     // argv++;
 
     mx_error_flag(argc,argv);
-    if (argc == 1 || (mx_find_flag(argc, argv, '1') == 1 
+    if (argc == 1 || ((mx_find_flag(argc, argv, '1') == 1
+        ||  mx_find_flag(argc, argv, 'G') == 1)
         && argc == 2 && mx_strlen(argv[1]) == 2)) {
         mx_ls_no_flags(".", dir);
         mx_loop_print(argc, dir->names, argv);
