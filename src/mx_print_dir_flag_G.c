@@ -33,11 +33,11 @@ void mx_print_dir_flag_G(t_array *dir, int delim, int count, int win_width) {
                 mx_print_dir(dir->names[i], delim);
                 mx_printstr(MX_FILE);
             }
-            if(dir->type[i] == DT_REG){
+            else if(dir->type[i] == DT_REG){
                 mx_printstr(MX_FILE);
                 mx_print_dir(dir->names[i], delim);
             }
-            if(dir->type[i] == 0){
+            else if(dir->type[i] == 0){
                 mx_printstr(MX_EXEC);
                 mx_print_dir(dir->names[i], delim);
                 mx_printstr(MX_FILE);

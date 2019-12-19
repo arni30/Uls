@@ -10,7 +10,12 @@ void mx_ls_flag_a(char *current_position, t_array *dir) {
     if (dp != NULL) {
         while ((ep = readdir(dp)) != NULL) {
             dir->names[count] = mx_strdup(ep->d_name);
-            dir->type[count] = ep->d_type;
+            if ((lstat(ep->d_name, &dir->st[count]) >= 0) && (dir->st[count].st_mode > 0) && (S_IEXEC & dir->st[count].st_mode) && !S_ISDIR(dir->st[count].st_mode)) {
+                    dir->type[count] = 0;
+                }
+                else {
+                    dir->type[count] = ep->d_type;
+                }
             count++;
         }
     }
