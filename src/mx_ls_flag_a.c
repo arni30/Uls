@@ -2,7 +2,8 @@
 
 void mx_ls_flag_a(char *current_position, t_array *dir) {
     struct dirent *ep = NULL;
-    dir = malloc(sizeof(t_array));
+    dir->type = malloc(sizeof(unsigned char));
+    dir->names = malloc(sizeof(char *) * INT_MAX/16);
     DIR *dp = opendir(current_position);
     int count = 0;
 
@@ -13,6 +14,7 @@ void mx_ls_flag_a(char *current_position, t_array *dir) {
         }
     }
     closedir(dp);
-    dir = mx_realloc(dir, count * sizeof(t_array*));
+    dir->names = mx_realloc(dir->names, count * sizeof(char**));
+    dir->type = mx_realloc(dir->type, count * sizeof(unsigned char));
     mx_sort_dir(dir->names, count);
 }

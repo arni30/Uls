@@ -29,8 +29,7 @@ typedef struct t_array {
     unsigned char *type;
 } t_array;
 
-
-void mx_ls_flag_G(char *current_position, t_array *dir);
+void mx_free_dir(t_array *dir);
 void mx_print_dir_new_line(char **arr, int delim, int count, int win_width);
 char **mx_ls_show_directory(char *dir);
 void mx_ls_flag__A(char *current_position, t_array *dir);
