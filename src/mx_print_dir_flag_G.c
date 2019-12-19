@@ -15,14 +15,6 @@ void mx_print_dir_flag_G(t_array *dir, int delim, int count, int win_width) {
             e_line--;
         }
     }
-    int a= 0;
-    while(a < 6){
-        mx_printstr(dir->names[a]);
-        mx_printchar('-');
-        printf("%c",dir->type[a]);
-        mx_printchar('\n');
-        a++;
-    } 
     e_col = (count / e_line);    
     if (count % e_line != 0 ) {
         e_col += 1;

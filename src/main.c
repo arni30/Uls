@@ -16,6 +16,6 @@ int main(int argc, char **argv) {
     }
     mx_loop_print(argc, dir, argv);  
     mx_free_dir(dir);
-    system("leaks -q uls");
+    //system("leaks -q uls");
     return 0;
 }

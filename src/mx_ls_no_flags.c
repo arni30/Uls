@@ -19,8 +19,6 @@ void mx_ls_no_flags(char *current_position, t_array *dir) {
                     dir->type[count] = ep->d_type;
                 }
                 dir->names[count] = mx_strdup(ep->d_name);
-                printf("%s  ", dir->names[count]);
-                printf("%u\n", dir->type[count]);
                 count++;
             }
         }
