@@ -19,5 +19,5 @@ void mx_ls_flag__A(char *current_position, t_array *dir) {
     closedir(dp);
     dir->names = mx_realloc(dir->names, count * sizeof(char**));
     dir->type = mx_realloc(dir->type, count * sizeof(unsigned char));
-    mx_sort_dir(dir->names, count);
+    mx_sort_dir(dir->names, count, dir->type);
 }

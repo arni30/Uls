@@ -10,6 +10,7 @@ char **mx_ls_show_directory(char *dir) {
         while ((ep = readdir(dp)) != NULL) {
             if (ep->d_name[0] != '.') {
                 arr[count] = mx_strdup(ep->d_name);
+                
                 count++;
             }
         }
@@ -17,7 +18,7 @@ char **mx_ls_show_directory(char *dir) {
     }
     closedir(dp);
     arr = mx_realloc(arr, count * sizeof(char*));
-    mx_sort_dir(arr,count);
+    //mx_sort_dir(dir->names, count, dir->type);
     // mx_loop_print(arr, "\n");
     // mx_printchar('\n');
     //mx_free_void_arr((void**)arr, count);
