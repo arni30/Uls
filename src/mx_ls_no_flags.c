@@ -14,7 +14,7 @@ void mx_ls_no_flags(char *current_position, t_array *dir) {
                     if ((lstat(ep->d_name, dir->st[count]) >= 0) 
                         && (dir->st[count]->st_mode > 0) 
                         && (S_IEXEC & dir->st[count]->st_mode) 
-                        && !S_ISDIR(dir->st[count]->st_mode)) {
+                        && (S_IFMT & dir->st[count]->st_mode) != S_IFDIR) {
                         dir->type[count] = 0;
                     }
                     else {
