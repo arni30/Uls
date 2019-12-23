@@ -16,14 +16,17 @@ int mx_strcmp_ls(const char *s1, const char *s2){
     }
     return 0;
 }
-void mx_sort_dir(char **name, int count, unsigned char *type) {
+void mx_sort_dir(int count, t_array *dir) {
     for (int i = 0; i < count - 1; i++) {
         //printf("s= %s, %d\n", dir[i], *dir[i]);
         for (int j = i + 1; j < count; j++) {
             //printf("s= %s, %d\n", dir[i], *dir[i]);
-            if (mx_strcmp_ls(name[i], name[j]) > 0){
-                mx_swaps_arr(name, i, j);
-                mx_swap_char((char*)&type[i], (char*)&type[j]);
+            if (mx_strcmp_ls(dir->names[i], dir->names[j]) > 0){
+                mx_swaps_arr(dir->names, i, j);
+                struct stat *temp = dir->st[i];
+                dir->st[i] = dir->st[j];
+                dir->st[j] = temp;
+                mx_swap_char((char*)&dir->type[i], (char*)&dir->type[j]);
             }
         }
     }

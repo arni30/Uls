@@ -16,13 +16,19 @@
 #include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <limits.h>
+#include <pwd.h>
+#include <grp.h>
+#include <sys/xattr.h>
+#include <sys/acl.h>
 
 typedef struct t_array {
     char **names;
     unsigned char *type;
-    struct stat *st;
+    struct stat **st;
 } t_array;
-
+char *mx_gid_to_name(int gid);
+char *mx_uid_to_name(int id);
+void mx_ls_flag_l(t_array *dir);
 void mx_print_dir_flag_G(t_array *dir, int delim, int count, int win_width);
 void mx_free_dir(t_array *dir);
 void mx_print_dir_new_line(t_array *arr, int delim, int count, int win_width);
@@ -38,7 +44,7 @@ void mx_print_error(char *str);
 void mx_print_error_flag(int index1, int index2, char **flags);
 void mx_error_flag(int argc, char **flags);
 void mx_error_dir(char **flags, int index);
-void mx_sort_dir(char **name, int count, unsigned char *type);
+void mx_sort_dir(int count, t_array *dir);
 void mx_swaps_arr(char **arr, int i, int j);
 int mx_winsize(void);
 
