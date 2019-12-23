@@ -1,13 +1,13 @@
 #include "../inc/uls.h"
 
 void mx_ls_flag_l(t_array *dir) {
-    //acl_type_t **type = NULL;
-    // ssize_t *r = NULL;
-    // char **linkname = NULL;
+    acl_t type = NULL;
+    // ssize_t r = 0;
+    // char *linkname = malloc((dir->st[1]->st_size + 1));
+    //char *acl_text = malloc(sizeof(char*));
+    //ssize_t *len = NULL;
 
     for (int i = 0; i < mx_count_arr_el(dir->names); i++) {
-        //linkname[i] = (char*)malloc((dir->st[i]->st_size + 1) * sizeof(char));
-        //type = malloc(sizeof(type));
         mx_printstr("USER ID [");
         mx_printint(i);
         mx_printstr("]: ");
@@ -26,12 +26,12 @@ void mx_ls_flag_l(t_array *dir) {
         mx_printint(dir->st[i]->st_nlink);
         mx_printstr("       ");
 
-        //r[i] = readlink("/", linkname[i], dir->st[i]->st_size + 1);
         mx_printstr("LICENSE [");
         mx_printint(i);
         mx_printstr("]: ");
-        mx_printint(dir->st[i]->st_mode);
-        //acl_get_file(dir->names[i], *type[i]);
+        type = acl_get_file(dir->names[i], ACL_TYPE_ACCESS);
+        //printf("%s", acl_to_text (type, NULL));
+        mx_printstr(acl_to_text (type, NULL));
         mx_printstr("       ");
 
         mx_printstr("\n");
