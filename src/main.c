@@ -5,7 +5,7 @@ int main(int argc, char **argv) {
 
     mx_error_flag(argc,argv);
     mx_ls_no_flags(".", dir);
-    //mx_ls_flag_l(dir);
+    mx_ls_flag_l(dir);
     // if (mx_find_flag(argc, argv, 'A') == 1) {
     //     mx_free_dir(dir);
     //     mx_ls_flag__A(".",dir);

@@ -1,10 +1,10 @@
 #include "../inc/uls.h"
 
 void mx_ls_flag_l(t_array *dir) {
-    acl_t type = NULL;
+    acl_t acl = NULL;
     // ssize_t r = 0;
     // char *linkname = malloc((dir->st[1]->st_size + 1));
-    //char *acl_text = malloc(sizeof(char*));
+    char *acl_text = NULL;
     //ssize_t *len = NULL;
 
     for (int i = 0; i < mx_count_arr_el(dir->names); i++) {
@@ -29,11 +29,25 @@ void mx_ls_flag_l(t_array *dir) {
         mx_printstr("LICENSE [");
         mx_printint(i);
         mx_printstr("]: ");
-        type = acl_get_file(dir->names[i], ACL_TYPE_ACCESS);
-        //printf("%s", acl_to_text (type, NULL));
-        mx_printstr(acl_to_text (type, NULL));
+        //acl = malloc(sizeof(acl_t));
+        acl = acl_get_file(dir->names[i], ACL_TYPE_ACCESS);
+        if (acl == NULL)
+	{
+		perror ("acl_get_file()");
+		exit(1);
+	}
+        acl_text = acl_to_text (acl, NULL);
+        if (acl_text == NULL)
+	{
+		perror ("acl_to_text()");
+		exit(1);
+	}
+        printf("%s", acl_text);
+        //mx_printstr(acl_to_text (type, NULL));
+        acl_free(acl_text);
         mx_printstr("       ");
 
         mx_printstr("\n");
     }
 }
+
