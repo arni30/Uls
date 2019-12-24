@@ -5,13 +5,14 @@ void mx_ls_flag_a(char *current_position, t_array *dir) {
     DIR *dp = opendir(current_position);
     int count = 0;
 
-    dir->type = malloc(sizeof(unsigned char));
-    dir->names = malloc(sizeof(char *) * INT_MAX/16);
+    dir->st = malloc(sizeof(struct stat *) * INT_MAX/144);//почистить для вызова a и A
+    dir->type = malloc(sizeof(unsigned char) * UCHAR_MAX);
+    dir->names = malloc(sizeof(char *) * INT_MAX/8);
     if (dp != NULL) {
         while ((ep = readdir(dp)) != NULL) {
+            dir->st[count] = malloc(sizeof(struct stat) * INT_MAX/144);//почистить для вызова a и A
             dir->names[count] = mx_strdup(ep->d_name);
-            dir->st[count] = malloc(sizeof(struct stat));
-            if ((lstat(ep->d_name, dir->st[count]) >= 0) 
+            if ((stat(ep->d_name, dir->st[count]) >= 0) 
                     && (dir->st[count]->st_mode > 0) 
                     && (S_IEXEC & dir->st[count]->st_mode) 
                     && (S_IFMT & dir->st[count]->st_mode) != S_IFDIR) {

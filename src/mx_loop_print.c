@@ -5,8 +5,9 @@ void mx_loop_print(int argc,t_array *dir, char **argv) {
     int delim = 8;
     int i = 0;
     int win_width; 
-
- while (dir->names[count]) {
+    
+    //
+    while (dir->names[count]) {
         i = 0;
         while(dir->names[count][i]){
             i++;
@@ -19,8 +20,9 @@ void mx_loop_print(int argc,t_array *dir, char **argv) {
         }
         count++;
     }
+    //
     i = 0;
-    if (mx_find_flag(argc , argv, '1') == 1 || isatty(1) == 0) {
+    if (isatty(1) == 0) {
         while (i < count - 1) {
             mx_print_dir(dir->names[i], -1);
             i++;
@@ -29,14 +31,19 @@ void mx_loop_print(int argc,t_array *dir, char **argv) {
         mx_printchar('\n');
     }
     else if (mx_find_flag(argc , argv, 'G') == 1){
+        if (mx_find_flag(argc , argv, '1') == 1)
+            delim = -1;
         win_width = mx_winsize();
         mx_print_dir_flag_G(dir, delim, count, win_width);
     }
     else {
+        if (mx_find_flag(argc , argv, '1') == 1)
+            delim = -1;
         win_width = mx_winsize();
         mx_print_dir_new_line(dir, delim, count, win_width);
    }
 }
+
 
 
 
