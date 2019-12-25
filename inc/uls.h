@@ -9,7 +9,10 @@
 #define MX_FILE "\033[0m"           //Regular file
 #define MX_EXEC "\033[31m"           //Directory
 #define MX_DIR "\033[34m" 
-
+#define MX_LINK "\033[35m"
+#define MX_FIFO "\033[33m" 
+#define MX_SOCKET "\033[32m" 
+#define MX_BLK "" 
 #include "../libmx/inc/libmx.h"
 #include <sys/types.h>
 #include <dirent.h>
@@ -27,6 +30,7 @@ typedef struct t_array {
     struct stat **st;
 } t_array;
 
+void mx_print_symlink(t_array *dir, char *buf, int i);
 void mx_print_time_name(t_array *dir, int i, int flag);
 void mx_print_link_uid_gid_size(t_array *dir, int i);
 void mx_acl_attr_if(int mode, char *str, t_array *dir, int i);
