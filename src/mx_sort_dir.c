@@ -1,17 +1,5 @@
 #include "../inc/uls.h"
 
-int mx_strcmp_ls(const char *s1_, const char *s2_){
-    const unsigned char *s1 = (const unsigned char*) s1_;
-    const unsigned char *s2 = (const unsigned char*) s2_;
-    while (*s1 != '\0' || *s2 != '\0'){
-        if(*s1 != *s2){
-            return *s1 - *s2;
-        }
-        s1++;
-        s2++;
-    }
-    return 0;
-}
 void mx_sort_dir(int count, t_array *dir) {
     for (int i = 0; i < count - 1; i++) {
         for (int j = i + 1; j < count; j++) {
@@ -24,9 +12,6 @@ void mx_sort_dir(int count, t_array *dir) {
             }
         }
     }
-}
-void mx_swaps_arr(char **arr, int i, int j) {
-    char *temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+    dir->names = mx_realloc(dir->names, count * sizeof(char**));
+    dir->type = mx_realloc(dir->type, count * sizeof(unsigned char));
 }

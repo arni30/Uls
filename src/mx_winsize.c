@@ -7,6 +7,5 @@ int mx_winsize(void){
     if (err == -1) {
         exit(1);
     }
-    //printf("cols=%d rows=%d\n", wins.ws_col, wins.ws_row); 
     return wins.ws_col;
 }
