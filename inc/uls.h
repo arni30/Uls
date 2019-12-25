@@ -26,26 +26,27 @@ typedef struct t_array {
     unsigned char *type;
     struct stat **st;
 } t_array;
-char *mx_gid_to_name(int gid);
 char *mx_uid_to_name(int id);
 void mx_ls_flag_l(t_array *dir);
-void mx_print_dir_flag_G(t_array *dir, int delim, int count, int win_width);
+void mx_output_loop(t_array *dir, int delim, int win_width, 
+    void mx_print_output(int i, t_array *dir, int delim));
 void mx_free_dir(t_array *dir);
-void mx_print_dir_new_line(t_array *arr, int delim, int count, int win_width);
-char **mx_ls_show_directory(char *dir);
-void mx_ls_flag__A(char *current_position, t_array *dir);
+void mx_ls_dir(char *current_position, t_array *dir, int flag);
 void mx_free_void_arr(void **arr, int lines);
 int mx_find_flag(int argc, char **flags, char flag);
-void mx_loop_print(int argc,t_array *dir, char **argv);
-void mx_ls_flag_a(char *current_position, t_array *dir);
-void mx_ls_no_flags(char *current_position, t_array *dir);
-void mx_print_dir(const char *s, int delim);
+void mx_output(int argc,t_array *dir, char **argv);
+void mx_print_dir(int i, t_array *dir, int delim);
 void mx_print_error(char *str);
 void mx_print_error_flag(int index1, int index2, char **flags);
 void mx_error_flag(int argc, char **flags);
 void mx_error_dir(char **flags, int index);
 void mx_sort_dir(int count, t_array *dir);
-void mx_swaps_arr(char **arr, int i, int j);
 int mx_winsize(void);
+int mx_count_delim(char **dir, int argc, char **argv);
+void mx_malloc_dir(t_array *dir);
+void mx_fill_dir(t_array *dir, struct dirent *ep, int count);
+int count_el_in_line(int count, int e_line);
+void mx_color_print(int i, t_array *dir, int delim);
+int mx_strcmp_ls(const char *s1_, const char *s2_);
 
 #endif
