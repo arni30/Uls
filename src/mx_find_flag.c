@@ -2,7 +2,7 @@
 
 int mx_find_flag(int argc, char **flags, char flag){
     int j = 0;
-    //DIR *dp;
+    // DIR *dp;
 
     for (int i = 1; i < argc; i++) {
         // dp = opendir(flags[i]);

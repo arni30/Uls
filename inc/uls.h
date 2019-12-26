@@ -49,7 +49,7 @@ void mx_ls_flag_l(t_array *dir, int flag, char **argv);
 void mx_output_loop(t_array *dir, t_var *variable, int win_width, 
     void mx_print_output(int i, t_array *dir, int delim, char **argv));
 void mx_free_dir(t_array *dir);
-void mx_ls_dir(char *current_position, t_array *dir, int flag);
+void mx_ls_dir(char *current_position, t_array *dir, int flag, char **argv); //
 void mx_free_void_arr(void **arr, int lines);
 int mx_find_flag(int argc, char **flags, char flag);
 void mx_output(int argc,t_array *dir, char **argv);
@@ -66,5 +66,5 @@ void mx_fill_dir(t_array *dir, struct dirent *ep, int count);
 int count_el_in_line(int count, int e_line);
 void mx_color_print(int i, t_array *dir, int delim, char **argv);
 int mx_strcmp_ls(const char *s1_, const char *s2_);
-
+// -l -a -A -G -1 -f -F -C
 #endif

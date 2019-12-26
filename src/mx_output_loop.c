@@ -20,6 +20,4 @@ void mx_output_loop(t_array *dir, t_var *variable, int win_width,
             mx_print_output(i, dir, variable->delim, variable->args);
         }
     }
-    mx_free_void_arr((void**)variable->args, mx_count_arr_el(variable->args));
-    free(variable);
 }
