@@ -10,7 +10,8 @@ int mx_count_delim(char **dir, int argc, char **argv) {
         while(dir[count][i]){
             i++;
         }
-        if (mx_find_flag(argc , argv, 'G') == 1 && i >= delim) {
+        if (mx_find_flag(argc , argv, 'G') == 1 && i >= delim 
+            && mx_find_flag(argc , argv, 'F') == 0) {
             delim = i + 1;
         }
         else if(i >= delim) {

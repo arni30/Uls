@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
         mx_ls_dir(".", dir, flag);
     }
     if (mx_find_flag(argc, argv, 'l') == 1)
-        mx_ls_flag_l(dir, g_fl);
+        mx_ls_flag_l(dir, g_fl, argv);
     else
         mx_output(argc, dir, argv);  
     mx_free_dir(dir);

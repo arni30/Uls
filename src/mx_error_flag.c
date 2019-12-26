@@ -3,9 +3,10 @@
 void mx_error_flag(int argc, char **flags){
     char *us_f = "ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1";
     int flag = 0;
-    
+    DIR *dp;
     for (int i = 1; i < argc; i++) {
-        if (flags[i][0] != '-' && opendir(flags[i]) == NULL){
+        dp = opendir(flags[i]);
+        if (flags[i][0] != '-' && dp == NULL){
             mx_error_dir(flags, i);
             exit(1);
         }
@@ -20,5 +21,7 @@ void mx_error_flag(int argc, char **flags){
             if(flag == 0)
                 mx_print_error_flag(i, j, flags);
         }
+        if (dp != NULL)
+            closedir(dp);
     }
 }
