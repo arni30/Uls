@@ -40,7 +40,7 @@ void mx_if_sock_blk_fifo(int delim, t_array *dir, int i, char **argv);
 void mx_print_total(t_array *dir);
 void mx_print_symlink(t_array *dir, char *buf, int i);
 void mx_print_time_name(t_array *dir, int i, int flag, char **argv);
-void mx_print_link_uid_gid_size(t_array *dir, int i);
+void mx_print_link_uid_gid_size(t_array *dir, int i, char flag);
 void mx_acl_attr_if(int mode, char *str, t_array *dir, int i);
 void mx_license_if(int mode, char *str);
 void mx_print_mode(t_array *dir, int i);
@@ -66,5 +66,5 @@ void mx_fill_dir(t_array *dir, struct dirent *ep, int count);
 int count_el_in_line(int count, int e_line);
 void mx_color_print(int i, t_array *dir, int delim, char **argv);
 int mx_strcmp_ls(const char *s1_, const char *s2_);
-// -l -a -A -G -1 -f -F -C
+// -l -a -A -G -1 -f -F -C -f -o -g
 #endif

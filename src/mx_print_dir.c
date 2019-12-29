@@ -11,12 +11,12 @@ void mx_print_dir(int i, t_array *dir, int delim, char **argv) {
             a_el++;
         count++;
     }
-    // if (mx_find_flag(mx_count_arr_el(argv), argv, 's') == 1){
-    //     mx_printstr("  ");
-    //     mx_printint(dir->st[i]->st_blocks);
-    //     mx_printstr(" ");
-    //     len+=3;
-    // }
+    if (mx_find_flag(mx_count_arr_el(argv), argv, 's') == 1){
+        mx_printstr("  ");
+        mx_printint(dir->st[i]->st_blocks);
+        mx_printstr(" ");
+        len+=3;
+    }
     len = (len - a_el) / 2 + (len - a_el) % 2 + a_el;
 
     mx_printstr(s);

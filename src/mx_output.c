@@ -21,6 +21,9 @@ void mx_output(int argc,t_array *dir, char **argv) {
     count = mx_count_arr_el(dir->names); 
     variables->delim = mx_count_delim(dir->names, argc, argv);
     variables->args = mx_copy_argv(argv, argc);
+    if (mx_find_flag(argc , argv, 's') == 1) {
+        mx_print_total(dir);
+    }
     if (mx_find_flag(argc , argv, '1') == 1)
             variables->delim = -1;
     if (isatty(1) == 0 && mx_find_flag(argc, argv, 'C') != 1) {

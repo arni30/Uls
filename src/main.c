@@ -15,12 +15,14 @@ int main(int argc, char **argv) {
         mx_free_dir(dir);
         mx_ls_dir(".", dir, flag, argv);
     }   
-    if (mx_find_flag(argc, argv, 'a') == 1 || mx_find_flag(argc, argv, 'f') == 1) {
+    if (mx_find_flag(argc, argv, 'a') == 1 
+        || mx_find_flag(argc, argv, 'f') == 1) {
         flag = -1;
         mx_free_dir(dir);
         mx_ls_dir(".", dir, flag, argv);
     }
-    if (mx_find_flag(argc, argv, 'l') == 1)
+    if (mx_find_flag(argc, argv, 'l') == 1 
+        || mx_find_flag(mx_count_arr_el(argv), argv, 'o') == 1)
         mx_ls_flag_l(dir, g_fl, argv);
     else
         mx_output(argc, dir, argv);  
