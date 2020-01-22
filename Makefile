@@ -14,7 +14,7 @@ install:
 	@mkdir obj
 	@clang $(CFLAGS) -c $(SRC)
 	@cp $(SRCOB) $(DIR)
-	@clang $(CFLAGS) -o $(NAME) $(OBJ) -L./libmx -lmx
+	@clang $(CFLAGS) -g $(SRC) -L./libmx -lmx
 
 uninstall: clean
 	@rm -rf $(NAME)

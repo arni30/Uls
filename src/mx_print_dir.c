@@ -1,6 +1,6 @@
 #include "../inc/uls.h"
 
-void mx_print_dir(int i, t_array *dir, int delim, char **argv) {
+void mx_print_dir(int i, t_array *dir, t_var *variable) {
     const char *s = dir->names[i];
     int len = mx_strlen(s);
     int count = 0;
@@ -11,19 +11,18 @@ void mx_print_dir(int i, t_array *dir, int delim, char **argv) {
             a_el++;
         count++;
     }
-    if (mx_find_flag(mx_count_arr_el(argv), argv, 's') == 1){
-        mx_printstr("  ");
+    if (mx_find_flag(variable->argc1, variable->args, 's') == 1){
         mx_printint(dir->st[i]->st_blocks);
         mx_printstr(" ");
-        len+=3;
+        len += 3;
     }
     len = (len - a_el) / 2 + (len - a_el) % 2 + a_el;
 
     mx_printstr(s);
-    if (mx_print_flag_F(argv, dir, i) == 1)
+    if (mx_print_flag_F(variable, dir, i) == 1)
         len++;
-    if (delim != -1){
-        for(int i = delim - len; i > 0; i--) {
+    if (variable->delim != -1){
+        for(int i = variable->delim - len; i > 0; i--) {
             mx_printstr(" ");
         }
     }

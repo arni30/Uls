@@ -38,9 +38,10 @@ void mx_ls_dir(char *current_position, t_array *dir, int flag, char **argv) {
     closedir(dp);
     if (mx_find_flag(mx_count_arr_el(argv), argv, 'f') == 0)
         mx_sort_dir(count, dir);
-    if (mx_find_flag(mx_count_arr_el(argv), argv, 'S') == 1 
-        && mx_find_flag(mx_count_arr_el(argv), argv, 'f') == 0)
+    else if (mx_find_flag(mx_count_arr_el(argv), argv, 'S') == 1
+             && mx_find_flag(mx_count_arr_el(argv), argv, 'f') == 0){
         mx_sort_dir_filesize(count, dir);
+    }
 
 }
 

@@ -1,10 +1,10 @@
 #include "../inc/uls.h"
 
 void mx_output_loop(t_array *dir, t_var *variable, int win_width, 
-    void mx_print_output(int i, t_array *dir, int delin, char **argv)) {
+    void mx_print_output(int i, t_array *dir, t_var *variable)) {
     int e_line = win_width / variable->delim;
     int e_col = 0;
-    int count = mx_count_arr_el(dir->names); 
+    int count = mx_count_arr_el(dir->names);
 
     e_line = count_el_in_line(count, e_line);
     e_col = (count / e_line);    
@@ -13,11 +13,14 @@ void mx_output_loop(t_array *dir, t_var *variable, int win_width,
     for (int y = 0; y < e_col; y++) {
         for (int k = e_line,i = y; k != 0; k--, i += e_col) {
             if(dir->names[i + e_col] == NULL){
-                if(dir->names[i] != NULL)
-                    mx_print_output(i, dir, -1, variable->args);
+                if(dir->names[i] != NULL) {
+                    variable->delim = -1;
+                    mx_print_output(i, dir, variable);
+                    variable->delim = mx_count_delim(dir->names, variable->argc1, variable->args);
+                }
                 break; //without last space
             }
-            mx_print_output(i, dir, variable->delim, variable->args);
+            mx_print_output(i, dir, variable);
         }
     }
 }
