@@ -28,6 +28,4 @@ void mx_output(t_array *dir, t_var *variable) {
         mx_output_loop(dir, variable, win_width, mx_color_print);
     else 
         mx_output_loop(dir, variable, win_width, mx_print_dir);
-    mx_free_void_arr((void**)variable->args, variable->argc1);
-    free(variable);
 }

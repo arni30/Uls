@@ -22,17 +22,20 @@ void mx_ls_dir(char *current_position, t_array *dir, int flag, char **argv) {
     DIR *dp = opendir(current_position);
     int count = 0;
 
+    char pathName[PATH_MAX + 1];
+
     mx_malloc_dir(dir);
     if (dp != NULL) {
         while ((ep = readdir(dp)) != NULL) {
+            mx_strcpy(pathName, current_position);
             if (flag == 0 && ep->d_name[0] != '.')
-                mx_fill_dir(dir, ep, count++);
+                mx_fill_dir(dir, ep, count++, pathName);
             else if (flag == 1 && (mx_isalpha(ep->d_name[1]) 
                     || ep->d_name[0] != '.')){
-                mx_fill_dir(dir, ep, count++);
+                mx_fill_dir(dir, ep, count++, pathName);
             }
             else if (flag == -1)
-                mx_fill_dir(dir, ep, count++);
+                mx_fill_dir(dir, ep, count++, pathName);
         }
     }
     closedir(dp);

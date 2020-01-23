@@ -6,7 +6,7 @@ void mx_if_sock_blk_fifo(t_array *dir, int i, t_var *variable) {
         mx_print_dir(i, dir, variable);
         mx_printstr(MX_FILE);
     }
-    if ((dir->st[i]->st_mode & S_IFMT) == S_IFBLK 
+    if ((dir->st[i]->st_mode & S_IFMT) == S_IFBLK
         || (dir->st[i]->st_mode & S_IFMT) == S_IFCHR) {
         mx_printstr(MX_SOCKET);
         mx_print_dir(i, dir, variable);

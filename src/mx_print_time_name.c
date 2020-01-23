@@ -32,4 +32,3 @@ void mx_print_time_name(t_array *dir, int i, int flag, t_var *variable) {
     free(a);
     free(time);
 }
-

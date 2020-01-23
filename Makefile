@@ -7,13 +7,14 @@ DIR = obj/
 LIBMX = libmx
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 
-all: install clean
+all: install
 
 install:
 	@make -C $(LIBMX)
 	@mkdir obj
 	@clang $(CFLAGS) -c $(SRC)
 	@cp $(SRCOB) $(DIR)
+	@rm -rf $(SRCOB)
 	@clang $(CFLAGS) -g $(SRC) -L./libmx -lmx
 
 uninstall: clean
@@ -21,7 +22,6 @@ uninstall: clean
 	@make uninstall -C $(LIBMX)
 
 clean:	
-	@rm -rf $(SRCOB)
 	@rm -rf $(DIR)
 
 reinstall: uninstall all

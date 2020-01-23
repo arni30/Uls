@@ -2,7 +2,7 @@
 #ifdef PATHFINDER_H
 
 #define MX_ERROR_FLAG "uls: illegal option -- "
-#define MX_ERROR_USAGE "usage: uls [-l] [file ...]\n"
+#define MX_ERROR_USAGE "usage: uls [-ACFGafglos1] [file ...]\n"
 #define MX_ERROR_DIR ": No such file or directory\n"
 #define MX_ULS "uls: " 
 
@@ -36,17 +36,18 @@ typedef struct s_var {
     int argc1;
 } t_var;
 
+void mx_sort_ascii(int count, char **arr);
 int mx_print_flag_F(t_var *variable, t_array *dir, int i);
 void mx_if_sock_blk_fifo(t_array *dir, int i, t_var *variable);
 void mx_print_total(t_array *dir);
 void mx_print_symlink(t_array *dir, char *buf, int i);
 void mx_print_time_name(t_array *dir, int i, int flag, t_var *variable);
-void mx_print_link_uid_gid_size(t_array *dir, int i, char flag);
-void mx_acl_attr_if(int mode, char *str, t_array *dir, int i);
+void mx_print_link_uid_gid_size(t_array *dir, int i, char flag, int acl);
+int mx_acl_attr_if(int mode, char *str, char *curentFile);
 void mx_license_if(int mode, char *str);
-void mx_print_mode(t_array *dir, int i);
+void mx_print_mode(t_array *dir, int i, char *position);
 char *mx_uid_to_name(int id);
-void mx_ls_flag_l(t_array *dir, int flag, t_var *variable);
+void mx_ls_flag_l(t_array *dir, int flag, t_var *variable, char *position);
 void mx_output_loop(t_array *dir, t_var *variable, int win_width,
     void mx_print_output(int i, t_array *dir, t_var *variable));
 void mx_free_dir(t_array *dir);
@@ -63,7 +64,7 @@ void mx_sort_dir(int count, t_array *dir);
 int mx_winsize(void);
 int mx_count_delim(char **dir, int argc, char **argv); //
 void mx_malloc_dir(t_array *dir);
-void mx_fill_dir(t_array *dir, struct dirent *ep, int count);
+void mx_fill_dir(t_array *dir, struct dirent *ep, int count, char *pathName);
 int count_el_in_line(int count, int e_line);
 void mx_color_print(int i, t_array *dir, t_var *variable);
 int mx_strcmp_ls(const char *s1_, const char *s2_);
