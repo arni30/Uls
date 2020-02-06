@@ -14,8 +14,10 @@ int mx_print_flag_F(t_var *variable, t_array *dir, int i) {
         else if ((dir->st[i]->st_mode & S_IFMT) == S_IFSOCK)
             mx_printchar('=');
         else
-            return 0;
+            return -1;
         return 1;
     }
     return 0;
 }
+
+

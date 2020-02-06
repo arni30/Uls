@@ -12,6 +12,6 @@ void mx_sort_dir(int count, t_array *dir) {
             }
         }
     }
-    dir->names = mx_realloc(dir->names, count * sizeof(char**));
-    dir->type = mx_realloc(dir->type, count * sizeof(unsigned char));
+//    dir->names = mx_realloc(dir->names, count * sizeof(char*));
+//    dir->type = mx_realloc(dir->type, count * sizeof(unsigned char));
 }
