@@ -10,12 +10,12 @@ void mx_color_print(int i, t_array *dir, t_var *variable, int num) {
         mx_printint(dir->st[i]->st_blocks);
         mx_printstr(" ");
     }
-    if((dir->st[i]->st_mode & S_ISVTX) && ((dir->st[i]->st_mode & S_IFMT))){
+    if(dir->type[i] == DT_DIR && (dir->st[i]->st_mode & S_ISVTX)){
         mx_printstr(MX_STICKY);
         mx_print_dir(i, dir, variable, num);
         mx_printstr(MX_FILE);
     }
-    else if(((dir->st[i]->st_mode & S_IFMT) == S_IFDIR)){
+    else if(dir->type[i] == DT_DIR && !(dir->st[i]->st_mode & S_ISVTX)){
         mx_printstr(MX_DIR);
         mx_print_dir(i, dir, variable, num);
         mx_printstr(MX_FILE);
@@ -35,6 +35,7 @@ void mx_color_print(int i, t_array *dir, t_var *variable, int num) {
         mx_printstr(MX_FILE);
     }
     mx_if_sock_blk_fifo(dir, i, variable, num);
+    mx_strdel(&s_bl);
 }
 
 

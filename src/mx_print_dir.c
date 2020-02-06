@@ -1,48 +1,90 @@
 #include "../inc/uls.h"
 
-static size_t utf8_char_length(char firstbyte) {
-    if ((firstbyte & 0xC0) == 0xC0){
-        if ((firstbyte & 0xF0) == 0xF0) {
-            return 4;
-        } else if ((firstbyte & 0xE0) == 0xE0) {
-            return 3;
-        } else {
-            return 2;
-        }
-    }
-    else {
-        return 1;
-    }
-}
-int mx_strlen_unicode(char *s){
-    int i = 0;
-    int l = 0;
-
-    while (s[i] != '\0') {
-        if (utf8_char_length(s[i]) != 1)
-            l++;
-        i+=utf8_char_length(s[i]);
-    }
-    i = 0;
-    while (s[i] != '\0') {
-        if (s[i] > 0)
-            l++;
-        i++;
-    }
-    return l;
-}
+//int mx_strlen1(char *s){
+//    int i = 0;
+//    int count = 0;
+//
+//    while (s[i] != '\0') {
+//        if (s[i] < 0)
+//            count++;
+//        i++;
+//    }
+//
+//    return i - count / 2 + count % 2;
+//}
+//
+//int mx_switch_len(int n, int *i, char *source) {
+//    switch (n) {
+//        case 0xD0: {
+//            n = source[*i]; (*i)++;
+//            if (n == 0x81) {
+//                n = 0xA8;
+//                break;
+//            }
+//            if (n >= 0x90 && n <= 0xBF)
+//                n = n + 0x2F;
+//            break;
+//        }
+//        case 0xD1: {
+//            n = source[*i]; (*i)++;
+//            if (n == 0x91) {
+//                n = 0xB7;
+//                break;
+//            }
+//            if (n >= 0x80 && n <= 0x8F)
+//                n = n + 0x6F;
+//            break;
+//        }
+//    }
+//    return n;
+//}
+//
+//int mx_mb_loop(unsigned char n, char *source, char *m) {
+//    int counter = 0;
+//    int i = 0;
+//    int k = mx_strlen(source);
+//    while (i < k) {
+//        n = source[i];
+//        i++;
+//        if (n >= 0xBF){
+//            n = mx_switch_len(n, &i, source);
+//        }
+//        m[0] = n;
+//        counter++;
+//    }
+//    return counter;
+//}
+//
+//
+//int mb_strlen(char *source) {
+//    int counter = 0;
+//    unsigned char n = 0;
+//    char m[2] = { '0', '\0' };
+//
+//    counter = mx_mb_loop(n, source, m);
+//    if(counter == mx_strlen1(source)){
+//        return counter;
+//    }
+//    else {
+//        return counter - 2;
+//    }
+//}
 
 void mx_print_dir(int i, t_array *dir, t_var *variable, int num) {
     char *s = mx_strdup(dir->names[i]);
     int len = mx_strlen(s);
-    char *s_bl = mx_itoa(dir->st[i]->st_blocks);
-    int n_a = 0;
     int count = 0;
-
+    int n_a = 0;
+    char *s_bl = mx_itoa(dir->st[i]->st_blocks);
     while (s[count]) {
-        if (s[count] > 0) {
+        //mx_printint(sizeof((char*)s[count]));
+        if(s[count] > 0) {
             n_a++;
         }
+//        else if (s[count] == '\xd0' && s[count+1] == '\xb8') {
+//            len--;
+//            count++;
+//        }
         count++;
     }
     if (mx_find_flag(variable->argc1, variable->args, 's') == 1 && mx_find_flag(variable->argc1, variable->args, 'G') == 0){
@@ -53,10 +95,6 @@ void mx_print_dir(int i, t_array *dir, t_var *variable, int num) {
         mx_printstr(" ");
     }
     mx_strdel(&s_bl);
-//    if(len != (mx_strlen(s) - n_a) / 2 + (mx_strlen(s) - n_a) % 2 + n_a){
-//        //len += 1;
-//    }
-    //mx_printint(len);
     len = (len - n_a) / 2 + (len - n_a) % 2 + n_a;
     mx_printstr(s);
     if (mx_find_flag(variable->argc1, variable->args, 's') == 0

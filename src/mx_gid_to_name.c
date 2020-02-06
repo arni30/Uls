@@ -1,10 +1,10 @@
 #include "../inc/uls.h"
 
-void mx_gid_to_name(int id){
+char *mx_gid_to_name(t_array *dir, int n){
     struct group *pw_ptr;
 
-    if ((pw_ptr = getgrgid(id)) != NULL)
-        mx_printstr(pw_ptr->gr_name);
+    if ((pw_ptr = getgrgid(dir->st[n]->st_gid)) != NULL)
+        return pw_ptr->gr_name;
     else
-        mx_printint(id);
+        return mx_itoa(dir->st[n]->st_gid);
 }

@@ -1,53 +1,92 @@
 #include "../inc/uls.h"
 
-static void mx_uid_gid_yes(t_array *dir, int i, int num_of_files) {
-    int size = 0;
-    int counter = 0;
+//соеденить в одну конструкцию функций
 
-    mx_uid_to_name(dir->st[i]->st_uid);
-    mx_printstr("  ");
-    size = dir->st[i]->st_size;
-    if (size == 0)
-        counter = 1;
-    while (size > 0) {
-        counter++;
-        size /= 10;
+int mx_count_l_delim(int num_of_files, t_array *dir, int cur_name, char *to_name(t_array *dir, int n)) {
+    int delim = 0;
+
+    for (int i = 0; i < num_of_files; i++) {
+        if(mx_strlen(to_name(dir, i)) > delim)
+            delim = mx_strlen(to_name(dir, i));
     }
-    mx_gid_to_name(dir->st[i]->st_gid);
-    write(1, "       ", mx_count_max_sym(dir, 's', num_of_files) + 2 - counter);
+    delim = delim - cur_name + 2;
+    return delim;
+}
+
+static void mx_uid_gid_yes(t_array *dir, int i, int num_of_files) {
+    char *name = mx_uid_to_name(dir, i);
+    int len_name = mx_strlen(name);
+    char *size = NULL;
+    int delim = 0;
+
+    mx_printstr(name);
+    for (int i = 0; i < mx_count_l_delim(num_of_files, dir, len_name, mx_uid_to_name); i++) {
+        mx_printstr(" ");
+    }
+    name = mx_gid_to_name(dir, i);
+    len_name = mx_strlen(name);
+    mx_printstr(name);
+    for (int i = 0; i < mx_count_l_delim(num_of_files, dir, len_name, mx_gid_to_name); i++) {
+        mx_printstr(" ");
+    }
+    for (int y = 0; y < num_of_files; y++) {
+        size = mx_itoa(dir->st[y]->st_size);
+        if(mx_strlen(size) > delim)
+            delim = mx_strlen(size);
+        mx_strdel(&size);
+    }
+    size = mx_itoa(dir->st[i]->st_size);
+    for (int y = 0; y < delim - mx_strlen(size); y++) {
+        mx_printstr(" ");
+    }
     mx_printint(dir->st[i]->st_size);
     mx_printstr(" ");
+    mx_strdel(&size);
 }
 
 static void mx_gid_yes(t_array *dir, int i, int num_of_files) {
-    int size = 0;
-    int counter = 0;
+    char *name = mx_gid_to_name(dir, i);
+    int len_name = mx_strlen(name);
+    char *size = NULL;
+    int delim = 0;
 
-    size = dir->st[i]->st_size;
-    if (size == 0)
-        counter = 1;
-    while (size > 0) {
-        counter++;
-        size /= 10;
+    mx_printstr(name);
+    for (int i = 0; i < mx_count_l_delim(num_of_files, dir, len_name, mx_gid_to_name); i++) {
+        mx_printstr(" ");
     }
-    mx_gid_to_name(dir->st[i]->st_gid);
-    write(1, "       ", mx_count_max_sym(dir, 's', num_of_files) + 2 - counter);
+    for (int y = 0; y < num_of_files; y++) {
+        size = mx_itoa(dir->st[y]->st_size);
+        if(mx_strlen(size) > delim)
+            delim = mx_strlen(size);
+        mx_strdel(&size);
+    }
+    size = mx_itoa(dir->st[i]->st_size);
+    for (int y = 0; y < delim - mx_strlen(size); y++) {
+        mx_printstr(" ");
+    }
     mx_printint(dir->st[i]->st_size);
     mx_printstr(" ");
 }
 static void mx_uid_yes(t_array *dir, int i, int num_of_files) {
-    int size = 0;
-    int counter = 0;
+    char *name = mx_uid_to_name(dir, i);
+    int len_name = mx_strlen(name);
+    char *size = NULL;
+    int delim = 0;
 
-    mx_uid_to_name(dir->st[i]->st_uid);
-    size = dir->st[i]->st_size;
-    if (size == 0)
-        counter = 1;
-    while (size > 0) {
-        counter++;
-        size /= 10;
+    mx_printstr(name);
+    for (int i = 0; i < mx_count_l_delim(num_of_files, dir, len_name, mx_uid_to_name); i++) {
+        mx_printstr(" ");
     }
-    write(1, "       ", mx_count_max_sym(dir, 's', num_of_files) + 2 - counter);
+    for (int y = 0; y < num_of_files; y++) {
+        size = mx_itoa(dir->st[y]->st_size);
+        if(mx_strlen(size) > delim)
+            delim = mx_strlen(size);
+        mx_strdel(&size);
+    }
+    size = mx_itoa(dir->st[i]->st_size);
+    for (int y = 0; y < delim - mx_strlen(size); y++) {
+        mx_printstr(" ");
+    }
     mx_printint(dir->st[i]->st_size);
     mx_printstr(" ");
 }
@@ -55,17 +94,19 @@ static void mx_uid_yes(t_array *dir, int i, int num_of_files) {
 
 
 static void mx_gid_uid_no(t_array *dir, int i, int num_of_files) {
-    int size = 0;
-    int counter = 0;
+    char *size = NULL;
+    int delim = 0;
 
-    size = dir->st[i]->st_size;
-    if (size == 0)
-        counter = 1;
-    while (size > 0) {
-        counter++;
-        size /= 10;
+    for (int y = 0; y < num_of_files; y++) {
+        size = mx_itoa(dir->st[y]->st_size);
+        if(mx_strlen(size) > delim)
+            delim = mx_strlen(size);
+        mx_strdel(&size);
     }
-    write(1, "       ", mx_count_max_sym(dir, 's', num_of_files) + 2 - counter);
+    size = mx_itoa(dir->st[i]->st_size);
+    for (int y = 0; y < delim - mx_strlen(size) + 2; y++) {
+        mx_printstr(" ");
+    }
     mx_printint(dir->st[i]->st_size);
     mx_printstr(" ");
 }

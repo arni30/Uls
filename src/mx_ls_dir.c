@@ -1,13 +1,12 @@
 #include "../inc/uls.h"
 
-int mx_char_exist(char *file) {
+int mx_file_exist(char *file) {
     struct stat *st = (struct stat*) malloc(sizeof(struct stat));
     int flag = 0;
     char *path = mx_path(file, NULL, -1);
 
-    if ((lstat(path, st) != -1)) {
+    if ((lstat(path, st) != -1))
         flag = 1;
-    }
     free(st);
     st = NULL;
     mx_strdel(&path);
@@ -24,7 +23,7 @@ char **mx_input_files(t_var *variable, int *num_files) {
         if (mx_strcmp("--",variable->args[i]) == 0)
             flag_stop = 1;
         if (((variable->args[i][0] != '-' || mx_strcmp(variable->args[i], "-") == 0) || flag_stop == 1)
-            && dp == NULL && mx_char_exist(variable->args[i]) == 1) {
+            && dp == NULL && mx_file_exist(variable->args[i]) == 1) {
             files = mx_realloc(files, sizeof(char*) * ((*num_files) + 1));
             files[*num_files] = mx_strdup(variable->args[i]);
             (*num_files)++;

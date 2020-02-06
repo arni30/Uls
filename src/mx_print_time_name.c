@@ -14,7 +14,7 @@ static char *mx_first_flag(t_var *variable) {
     char *str = malloc(sizeof(str));
     for (int i = 1; i < variable->argc1; i++) {
         str = mx_realloc(str, sizeof(char) * (mx_strlen(str) + mx_strlen(variable->args[i]) + 1));
-        mx_strcat(str, variable->args[i]);
+        str = mx_strcat(str, variable->args[i]);
     }
     return str;
 }

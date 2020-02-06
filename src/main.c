@@ -21,11 +21,11 @@ static char** mx_copy_argv(char **argv, int argc) {
 int main(int argc, char **argv) {
   t_array *dir = (t_array*) malloc(sizeof(t_array));
   t_var *variables = (t_var*) malloc(sizeof(t_var));
-  int flag_dir = 0;
   int count = 0;
   char **position = (char**) malloc(sizeof(char*));
   DIR *dp;
   int flag_files = mx_error_flag(argc,argv);
+  int flag_stop = 0;
 
   //
   if (flag_files == 1) {
@@ -34,15 +34,18 @@ int main(int argc, char **argv) {
   }
   for (int i = 1; i < argc ; i++) {
       dp = opendir(argv[i]);
-      if (dp != NULL) {
+      if (mx_strcmp("--",argv[i]) == 0)
+          flag_stop = 1;
+      if (dp != NULL && (argv[i][0] != '-' || flag_stop == 1)) {
           position = (char**) mx_realloc(position, (count + 1) * sizeof(char*));
           position[count] = mx_strdup(argv[i]);
           count++;
-          flag_dir = 1;
-          closedir(dp);
+          flag_stop = 1;
       }
+      if (dp != NULL)
+          closedir(dp);
   }
-  if (flag_dir == 0 && flag_files == 0) {
+  if (count == 0 && flag_files == 0) {
       position[0] = mx_strdup(".");
       count = 1;
   }

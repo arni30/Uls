@@ -1,26 +1,29 @@
 #include "../inc/uls.h"
 
-void mx_flag_check(char **flags, int flag_stop, int i, char *us_f) {
-    int flag = 0;
+int mx_flag_check(char *flag_, int flag_stop) {
+    int flag = -2;
+    char *us_f = "ACFGRafglos1uc";//"ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1";
 
-    if (flags[i][0] == '-' && flag_stop == 0) {
-        for (int j = 1; flags[i][j] != '\0'; j++) {
+    if (flag_[0] == '-' && flag_stop == 0) {
+        for (int j = 1; flag_[j] != '\0'; j++) {
             flag = 0;
             for (int count = 0; us_f[count] != '\0'; count++) {
-                if (us_f[count] == flags[i][j]) {
-                    flag = 1;
+                if (us_f[count] == flag_[j]) {
+                    flag = -1;
                     break;
                 }
             }
-            if (flag == 0)
-                mx_print_error_flag(i, j, flags);
+            if (flag == 0) {
+                flag = j;
+                break;
+            }
         }
     }
+    return flag;
 }
 
 char **mx_error_check_loop(int argc, char **flags, int *flag_stop, int *count) {
     DIR *dp;
-    char *us_f = "ACFGRafglos1uc";//"ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1";
     char **error_flags = malloc(sizeof(char*));
 
     for (int i = 1; i < argc; i++) {
@@ -32,7 +35,8 @@ char **mx_error_check_loop(int argc, char **flags, int *flag_stop, int *count) {
             error_flags = mx_realloc(error_flags, sizeof(char*) * (*count + 1));
             error_flags[(*count)++] = mx_strdup(flags[i]);
         }
-        mx_flag_check(flags, *flag_stop, i, us_f);
+        if ((mx_flag_check(flags[i], *flag_stop)) >= 0)
+            mx_print_error_flag(i, (mx_flag_check(flags[i], *flag_stop)), flags);
         if (dp != NULL) {
             if (flags[i][0] != '-' || mx_strcmp(flags[i], "-") == 0)
                 *flag_stop = 1;
@@ -51,7 +55,7 @@ int mx_error_flag(int argc, char **flags) {
     if (mx_find_flag(argc, flags, 'f') == 0)
         mx_sort_ascii(count, error_flags);
     for (int j = 0; j != count; j++) {
-        if (mx_char_exist(error_flags[j]) == 0)
+        if (mx_file_exist(error_flags[j]) == 0)
             mx_error_dir(error_flags, j);
         else
             files++;
