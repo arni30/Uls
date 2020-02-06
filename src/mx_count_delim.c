@@ -35,7 +35,7 @@ int mx_count_delim(t_array *dir, t_var *variable, int num_of_files) {
         y = mx_strlen(dir->names[i]);
         if (mx_find_flag(variable->argc1, variable->args, 's') == 1)
             y += mx_count_max_sym(dir, 'b', num_of_files) + 1;
-        if (mx_find_flag(variable->argc1, variable->args, 'G') == 1 && y >= delim) {
+        if (mx_find_flag(variable->argc1, variable->args, 'G') == 1 && y >= delim && (isatty(1) != 0 || mx_find_flag(variable->argc1, variable->args, 'C') == 0)) {
             delim = y + 1;
         }
         else if(y >= delim) {

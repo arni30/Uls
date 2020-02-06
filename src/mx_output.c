@@ -3,7 +3,7 @@
 void mx_output(t_array *dir, t_var *variable, int num_of_files, int flag_files) {
     int win_width = 0;
 
-    win_width = mx_winsize();
+    win_width = 80;//mx_winsize();
     if (isatty(1) == 0 && mx_find_flag(variable->argc1, variable->args, 'C')==1)
         win_width = 80;
     variable->delim = mx_count_delim(dir, variable, num_of_files);
@@ -19,7 +19,7 @@ void mx_output(t_array *dir, t_var *variable, int num_of_files, int flag_files) 
             mx_print_dir(i, dir, variable, num_of_files);
         }
     }
-    else if (mx_find_flag(variable->argc1, variable->args, 'G') == 1)
+    else if (mx_find_flag(variable->argc1, variable->args, 'G') == 1 && isatty(1) == 1)
         mx_output_loop(dir, variable, win_width, mx_color_print, num_of_files);
     else
         mx_output_loop(dir, variable, win_width, mx_print_dir, num_of_files);
