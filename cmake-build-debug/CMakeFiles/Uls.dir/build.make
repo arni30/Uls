@@ -1058,9 +1058,22 @@ CMakeFiles/Uls.dir/src/mx_free_void_arr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Uls.dir/src/mx_free_void_arr.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oarnopolin/Desktop/Uls/src/mx_free_void_arr.c -o CMakeFiles/Uls.dir/src/mx_free_void_arr.c.s
 
+CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o: CMakeFiles/Uls.dir/flags.make
+CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o: ../src/mx_gid_to_name.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_gid_to_name.c
+
+CMakeFiles/Uls.dir/src/mx_gid_to_name.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Uls.dir/src/mx_gid_to_name.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oarnopolin/Desktop/Uls/src/mx_gid_to_name.c > CMakeFiles/Uls.dir/src/mx_gid_to_name.c.i
+
+CMakeFiles/Uls.dir/src/mx_gid_to_name.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Uls.dir/src/mx_gid_to_name.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oarnopolin/Desktop/Uls/src/mx_gid_to_name.c -o CMakeFiles/Uls.dir/src/mx_gid_to_name.c.s
+
 CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.o: ../src/mx_if_sock_blk_fifo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_if_sock_blk_fifo.c
 
 CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.i: cmake_force
@@ -1073,7 +1086,7 @@ CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_license_if.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_license_if.c.o: ../src/mx_license_if.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/Uls.dir/src/mx_license_if.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/Uls.dir/src/mx_license_if.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_license_if.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_license_if.c
 
 CMakeFiles/Uls.dir/src/mx_license_if.c.i: cmake_force
@@ -1086,7 +1099,7 @@ CMakeFiles/Uls.dir/src/mx_license_if.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_ls_dir.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_ls_dir.c.o: ../src/mx_ls_dir.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/Uls.dir/src/mx_ls_dir.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/Uls.dir/src/mx_ls_dir.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_ls_dir.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_ls_dir.c
 
 CMakeFiles/Uls.dir/src/mx_ls_dir.c.i: cmake_force
@@ -1099,7 +1112,7 @@ CMakeFiles/Uls.dir/src/mx_ls_dir.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_ls_flag_l.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_ls_flag_l.c.o: ../src/mx_ls_flag_l.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/Uls.dir/src/mx_ls_flag_l.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/Uls.dir/src/mx_ls_flag_l.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_ls_flag_l.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_ls_flag_l.c
 
 CMakeFiles/Uls.dir/src/mx_ls_flag_l.c.i: cmake_force
@@ -1112,7 +1125,7 @@ CMakeFiles/Uls.dir/src/mx_ls_flag_l.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_malloc_dir.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_malloc_dir.c.o: ../src/mx_malloc_dir.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/Uls.dir/src/mx_malloc_dir.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/Uls.dir/src/mx_malloc_dir.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_malloc_dir.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_malloc_dir.c
 
 CMakeFiles/Uls.dir/src/mx_malloc_dir.c.i: cmake_force
@@ -1125,7 +1138,7 @@ CMakeFiles/Uls.dir/src/mx_malloc_dir.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_output.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_output.c.o: ../src/mx_output.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/Uls.dir/src/mx_output.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/Uls.dir/src/mx_output.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_output.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_output.c
 
 CMakeFiles/Uls.dir/src/mx_output.c.i: cmake_force
@@ -1138,7 +1151,7 @@ CMakeFiles/Uls.dir/src/mx_output.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_output_loop.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_output_loop.c.o: ../src/mx_output_loop.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/Uls.dir/src/mx_output_loop.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/Uls.dir/src/mx_output_loop.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_output_loop.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_output_loop.c
 
 CMakeFiles/Uls.dir/src/mx_output_loop.c.i: cmake_force
@@ -1151,7 +1164,7 @@ CMakeFiles/Uls.dir/src/mx_output_loop.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_print_dir.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_print_dir.c.o: ../src/mx_print_dir.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/Uls.dir/src/mx_print_dir.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/Uls.dir/src/mx_print_dir.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_print_dir.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_print_dir.c
 
 CMakeFiles/Uls.dir/src/mx_print_dir.c.i: cmake_force
@@ -1164,7 +1177,7 @@ CMakeFiles/Uls.dir/src/mx_print_dir.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_print_error.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_print_error.c.o: ../src/mx_print_error.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/Uls.dir/src/mx_print_error.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/Uls.dir/src/mx_print_error.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_print_error.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_print_error.c
 
 CMakeFiles/Uls.dir/src/mx_print_error.c.i: cmake_force
@@ -1177,7 +1190,7 @@ CMakeFiles/Uls.dir/src/mx_print_error.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_print_error_flags.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_print_error_flags.c.o: ../src/mx_print_error_flags.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/Uls.dir/src/mx_print_error_flags.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/Uls.dir/src/mx_print_error_flags.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_print_error_flags.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_print_error_flags.c
 
 CMakeFiles/Uls.dir/src/mx_print_error_flags.c.i: cmake_force
@@ -1190,7 +1203,7 @@ CMakeFiles/Uls.dir/src/mx_print_error_flags.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_print_flag_F.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_print_flag_F.c.o: ../src/mx_print_flag_F.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/Uls.dir/src/mx_print_flag_F.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/Uls.dir/src/mx_print_flag_F.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_print_flag_F.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_print_flag_F.c
 
 CMakeFiles/Uls.dir/src/mx_print_flag_F.c.i: cmake_force
@@ -1203,7 +1216,7 @@ CMakeFiles/Uls.dir/src/mx_print_flag_F.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_print_link_uid_gid_size.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_print_link_uid_gid_size.c.o: ../src/mx_print_link_uid_gid_size.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/Uls.dir/src/mx_print_link_uid_gid_size.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/Uls.dir/src/mx_print_link_uid_gid_size.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_print_link_uid_gid_size.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_print_link_uid_gid_size.c
 
 CMakeFiles/Uls.dir/src/mx_print_link_uid_gid_size.c.i: cmake_force
@@ -1216,7 +1229,7 @@ CMakeFiles/Uls.dir/src/mx_print_link_uid_gid_size.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_print_mode.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_print_mode.c.o: ../src/mx_print_mode.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/Uls.dir/src/mx_print_mode.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/Uls.dir/src/mx_print_mode.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_print_mode.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_print_mode.c
 
 CMakeFiles/Uls.dir/src/mx_print_mode.c.i: cmake_force
@@ -1229,7 +1242,7 @@ CMakeFiles/Uls.dir/src/mx_print_mode.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_print_time_name.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_print_time_name.c.o: ../src/mx_print_time_name.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/Uls.dir/src/mx_print_time_name.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/Uls.dir/src/mx_print_time_name.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_print_time_name.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_print_time_name.c
 
 CMakeFiles/Uls.dir/src/mx_print_time_name.c.i: cmake_force
@@ -1242,7 +1255,7 @@ CMakeFiles/Uls.dir/src/mx_print_time_name.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_print_total.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_print_total.c.o: ../src/mx_print_total.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/Uls.dir/src/mx_print_total.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/Uls.dir/src/mx_print_total.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_print_total.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_print_total.c
 
 CMakeFiles/Uls.dir/src/mx_print_total.c.i: cmake_force
@@ -1255,7 +1268,7 @@ CMakeFiles/Uls.dir/src/mx_print_total.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_sort_dir.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_sort_dir.c.o: ../src/mx_sort_dir.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/Uls.dir/src/mx_sort_dir.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/Uls.dir/src/mx_sort_dir.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_sort_dir.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_sort_dir.c
 
 CMakeFiles/Uls.dir/src/mx_sort_dir.c.i: cmake_force
@@ -1268,7 +1281,7 @@ CMakeFiles/Uls.dir/src/mx_sort_dir.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.o: ../src/mx_strcmp_ls.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_strcmp_ls.c
 
 CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.i: cmake_force
@@ -1281,7 +1294,7 @@ CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_uid_to_name.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_uid_to_name.c.o: ../src/mx_uid_to_name.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/Uls.dir/src/mx_uid_to_name.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/Uls.dir/src/mx_uid_to_name.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_uid_to_name.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_uid_to_name.c
 
 CMakeFiles/Uls.dir/src/mx_uid_to_name.c.i: cmake_force
@@ -1294,7 +1307,7 @@ CMakeFiles/Uls.dir/src/mx_uid_to_name.c.s: cmake_force
 
 CMakeFiles/Uls.dir/src/mx_winsize.c.o: CMakeFiles/Uls.dir/flags.make
 CMakeFiles/Uls.dir/src/mx_winsize.c.o: ../src/mx_winsize.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/Uls.dir/src/mx_winsize.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building C object CMakeFiles/Uls.dir/src/mx_winsize.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_winsize.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_winsize.c
 
 CMakeFiles/Uls.dir/src/mx_winsize.c.i: cmake_force
@@ -1304,19 +1317,6 @@ CMakeFiles/Uls.dir/src/mx_winsize.c.i: cmake_force
 CMakeFiles/Uls.dir/src/mx_winsize.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Uls.dir/src/mx_winsize.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oarnopolin/Desktop/Uls/src/mx_winsize.c -o CMakeFiles/Uls.dir/src/mx_winsize.c.s
-
-CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o: CMakeFiles/Uls.dir/flags.make
-CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o: ../src/mx_gid_to_name.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building C object CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o   -c /Users/oarnopolin/Desktop/Uls/src/mx_gid_to_name.c
-
-CMakeFiles/Uls.dir/src/mx_gid_to_name.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Uls.dir/src/mx_gid_to_name.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/oarnopolin/Desktop/Uls/src/mx_gid_to_name.c > CMakeFiles/Uls.dir/src/mx_gid_to_name.c.i
-
-CMakeFiles/Uls.dir/src/mx_gid_to_name.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Uls.dir/src/mx_gid_to_name.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/oarnopolin/Desktop/Uls/src/mx_gid_to_name.c -o CMakeFiles/Uls.dir/src/mx_gid_to_name.c.s
 
 # Object files for target Uls
 Uls_OBJECTS = \
@@ -1397,6 +1397,7 @@ Uls_OBJECTS = \
 "CMakeFiles/Uls.dir/src/mx_find_flag.c.o" \
 "CMakeFiles/Uls.dir/src/mx_free_dir.c.o" \
 "CMakeFiles/Uls.dir/src/mx_free_void_arr.c.o" \
+"CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o" \
 "CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.o" \
 "CMakeFiles/Uls.dir/src/mx_license_if.c.o" \
 "CMakeFiles/Uls.dir/src/mx_ls_dir.c.o" \
@@ -1415,8 +1416,7 @@ Uls_OBJECTS = \
 "CMakeFiles/Uls.dir/src/mx_sort_dir.c.o" \
 "CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.o" \
 "CMakeFiles/Uls.dir/src/mx_uid_to_name.c.o" \
-"CMakeFiles/Uls.dir/src/mx_winsize.c.o" \
-"CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o"
+"CMakeFiles/Uls.dir/src/mx_winsize.c.o"
 
 # External object files for target Uls
 Uls_EXTERNAL_OBJECTS =
@@ -1498,6 +1498,7 @@ Uls: CMakeFiles/Uls.dir/src/mx_fill_dir.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_find_flag.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_free_dir.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_free_void_arr.c.o
+Uls: CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_if_sock_blk_fifo.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_license_if.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_ls_dir.c.o
@@ -1517,7 +1518,6 @@ Uls: CMakeFiles/Uls.dir/src/mx_sort_dir.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_strcmp_ls.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_uid_to_name.c.o
 Uls: CMakeFiles/Uls.dir/src/mx_winsize.c.o
-Uls: CMakeFiles/Uls.dir/src/mx_gid_to_name.c.o
 Uls: CMakeFiles/Uls.dir/build.make
 Uls: CMakeFiles/Uls.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/oarnopolin/Desktop/Uls/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Linking C executable Uls"

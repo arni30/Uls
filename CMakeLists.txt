@@ -3,8 +3,12 @@ project(Uls C)
 
 set(CMAKE_C_STANDARD 11)
 
+include_directories(.)
 include_directories(inc)
+include_directories(libmx)
 include_directories(libmx/inc)
+include_directories(libmx/src)
+include_directories(src)
 
 add_executable(Uls
         inc/uls.h
@@ -86,6 +90,7 @@ add_executable(Uls
         src/mx_find_flag.c
         src/mx_free_dir.c
         src/mx_free_void_arr.c
+        src/mx_gid_to_name.c
         src/mx_if_sock_blk_fifo.c
         src/mx_license_if.c
         src/mx_ls_dir.c
@@ -104,4 +109,4 @@ add_executable(Uls
         src/mx_sort_dir.c
         src/mx_strcmp_ls.c
         src/mx_uid_to_name.c
-        src/mx_winsize.c src/mx_gid_to_name.c)
+        src/mx_winsize.c)
