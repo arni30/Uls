@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Uls"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/oarnopolin/Desktop/Uls/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/oarnopolin/Desktop/Uls/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/oarnopolin/Desktop/Uls/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Uls">
+				<Option output="/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Uls" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/oarnopolin/Desktop/Uls/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/oarnopolin/Desktop/Uls/inc"/>
+					<Add directory="/Users/oarnopolin/Desktop/Uls/libmx/inc"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 Uls"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Uls/fast">
+				<Option output="/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Uls" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/oarnopolin/Desktop/Uls/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/oarnopolin/Desktop/Uls/inc"/>
+					<Add directory="/Users/oarnopolin/Desktop/Uls/libmx/inc"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 Uls/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/oarnopolin/Desktop/Uls/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/inc/uls.h">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/inc/libmx.h">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_atoi.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_binary_search.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_bubble_sort.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_count_arr_el.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_count_substr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_count_words.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_create_node.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_del_extra_spaces.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_del_extra_symbols.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_del_strarr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_file_to_str.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_foreach.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_get_char_index.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_get_substr_index.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_hex_to_nbr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_isalpha.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_isdigit.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_isspace.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_itoa.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_list_size.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_maximum.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_memccpy.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_memchr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_memcmp.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_memcpy.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_memmem.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_memmove.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_memrchr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_memset.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_min.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_minimal.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_nbr_to_hex.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_pop_back.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_pop_front.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_pow.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_print_strarr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_print_unicode.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_printchar.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_printint.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_printstr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_push_back.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_push_front.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_quicksort.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_read_line.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_realloc.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_replace_substr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_sort_list.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_sqrt.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_str_reverse.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strcat.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strchr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strcmp.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strcpy.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strdel.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strdup.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strjoin.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strlen.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strncat.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strncpy.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strndup.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strnew.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strsplit.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strstr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_strtrim.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_swap_char.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/libmx/src/mx_swaps_arr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/count_el_in_line.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/main.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_acl_attr_if.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_color_print.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_count_delim.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_error_dir.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_error_flag.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_fill_dir.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_find_flag.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_free_dir.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_free_void_arr.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_gid_to_name.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_if_sock_blk_fifo.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_license_if.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_ls_dir.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_ls_flag_l.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_malloc_dir.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_output.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_output_loop.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_print_dir.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_print_error.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_print_error_flags.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_print_flag_F.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_print_link_uid_gid_size.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_print_mode.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_print_time_name.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_print_total.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_sort_dir.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_strcmp_ls.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_uid_to_name.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/src/mx_winsize.c">
+			<Option target="Uls"/>
+		</Unit>
+		<Unit filename="/Users/oarnopolin/Desktop/Uls/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
