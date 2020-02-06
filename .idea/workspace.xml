@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Uls" targetName="Uls" />
+      <config projectName="Project" targetName="Uls" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -11,49 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66176b25-a0fc-4a72-8139-16adc4ad5135" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Uls.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mx_acl_attr_if.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mx_if_sock_blk_fifo.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mx_license_if.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mx_print_flag_F.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mx_print_link_uid_gid_size.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mx_print_mode.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mx_print_time_name.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mx_print_total.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/uls.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/uls.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libmx/libmx.a" beforeDir="false" afterPath="$PROJECT_DIR$/libmx/libmx.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libmx/src/mx_del_strarr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libmx/src/mx_del_strarr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libmx/src/mx_realloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/libmx/src/mx_realloc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libmx/src/mx_strcpy.c" beforeDir="false" afterPath="$PROJECT_DIR$/libmx/src/mx_strcpy.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libmx/src/mx_strdup.c" beforeDir="false" afterPath="$PROJECT_DIR$/libmx/src/mx_strdup.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libmx/src/mx_strlen.c" beforeDir="false" afterPath="$PROJECT_DIR$/libmx/src/mx_strlen.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_color_print.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_color_print.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_count_delim.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_count_delim.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_error_flag.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_error_flag.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_fill_dir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_fill_dir.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_find_flag.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_find_flag.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_free_dir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_free_dir.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_free_void_arr.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_free_void_arr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_ls_dir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_ls_dir.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_ls_flag_l.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_ls_flag_l.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_malloc_dir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_malloc_dir.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_output.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_output.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_output_loop.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_output_loop.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_print_dir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_print_dir.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_sort_dir.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_sort_dir.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_uid_to_name.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_uid_to_name.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx_winsize.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx_winsize.c" afterDir="false" />
-    </list>
+    <list default="true" id="66176b25-a0fc-4a72-8139-16adc4ad5135" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +20,6 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -126,7 +83,7 @@
       <workItem from="1580906944020" duration="5693000" />
       <workItem from="1580913365403" duration="4400000" />
       <workItem from="1580922838352" duration="6410000" />
-      <workItem from="1580987620983" duration="245000" />
+      <workItem from="1580987620983" duration="555000" />
     </task>
     <servers />
   </component>
