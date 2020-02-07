@@ -2,8 +2,6 @@
 
 //соеденить в одну конструкцию функций
 
-
-
 static void mx_uid_gid_yes(t_array *dir, int i, int num_of_files, t_var *variable) {
     char *name = mx_uid_to_name(dir, i);
     int len_name = mx_strlen(name);
@@ -11,8 +9,8 @@ static void mx_uid_gid_yes(t_array *dir, int i, int num_of_files, t_var *variabl
     int delim = 0;
 
     mx_printstr(name);
-
-        write(1, "                            ", variable->uid_delim - len_name);
+    write(1, "                            ", variable->uid_delim - len_name);
+    mx_strdel(&name);
     name = mx_gid_to_name(dir, i);
     len_name = mx_strlen(name);
     mx_printstr(name);
@@ -29,6 +27,7 @@ static void mx_uid_gid_yes(t_array *dir, int i, int num_of_files, t_var *variabl
     }
     mx_printint(dir->st[i]->st_size);
     mx_printstr(" ");
+    mx_strdel(&name);
     mx_strdel(&size);
 }
 
@@ -52,6 +51,8 @@ static void mx_gid_yes(t_array *dir, int i, int num_of_files, t_var *variable) {
     }
     mx_printint(dir->st[i]->st_size);
     mx_printstr(" ");
+    mx_strdel(&name);
+    mx_strdel(&size);
 }
 static void mx_uid_yes(t_array *dir, int i, int num_of_files, t_var *variable) {
     char *name = mx_uid_to_name(dir, i);
@@ -73,6 +74,8 @@ static void mx_uid_yes(t_array *dir, int i, int num_of_files, t_var *variable) {
     }
     mx_printint(dir->st[i]->st_size);
     mx_printstr(" ");
+    mx_strdel(&name);
+    mx_strdel(&size);
 }
 
 
@@ -93,6 +96,7 @@ static void mx_gid_uid_no(t_array *dir, int i, int num_of_files) {
     }
     mx_printint(dir->st[i]->st_size);
     mx_printstr(" ");
+    mx_strdel(&size);
 }
 
 

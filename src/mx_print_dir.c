@@ -31,11 +31,11 @@ void mx_print_dir(int i, t_array *dir, t_var *variable, int num) {
         if (mx_print_flag_F(variable, dir, i) == 1)
             len++;
     }
+    if (variable->flag_G == 1 && isatty(1) == 1)
+        mx_printstr(MX_FILE);
     if (variable->flag_s == 1)
         len += mx_count_max_sym(dir, 'b', num) + 1;
     if (variable->delim != -1){
-        if (variable->flag_G == 1 && isatty(1) == 1)
-            mx_printstr(MX_FILE);
         for(int i = variable->delim - len; i > 0; i--) {
             mx_printstr(" ");
         }

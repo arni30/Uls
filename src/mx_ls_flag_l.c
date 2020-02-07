@@ -2,10 +2,13 @@
 
 static int mx_count_l_delim(int num_of_files, t_array *dir, char *to_name(t_array *dir, int n)) {
     int delim = 0;
+    char *temp = NULL;
 
     for (int i = 0; i < num_of_files; i++) {
-        if(mx_strlen(to_name(dir, i)) > delim)
-            delim = mx_strlen(to_name(dir, i));
+        temp = to_name(dir, i);
+        if(mx_strlen(temp) > delim)
+            delim = mx_strlen(temp);
+        mx_strdel(&temp);
     }
     delim = delim + 2;
     return delim;

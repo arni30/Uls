@@ -107,7 +107,9 @@ void mx_flag_R(int num_of_files, t_array *dir, t_var *variable, char *current_po
 void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_files) {
     int g_fl = 0;
     struct dirent *ep = NULL;
+    errno = 0;
     DIR *dp = opendir(current_position);
+    char *errbuf = strerror(errno);
     int num_of_files = 0;
     char **files = NULL;
 
@@ -152,7 +154,9 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
         char *temp_pos = mx_strrchr(current_position, (unsigned char)'/');
         mx_print_error("uls: ");//ls: App Store.app: Permission denied
         mx_print_error(temp_pos);
-        mx_print_error(": Permission denied\n");
+        mx_print_error(": ");
+        mx_print_error(errbuf);
+        mx_print_error("\n");
         mx_strdel(&temp_pos);
     }
     if (variable->flag_R == 1 && dp != NULL) {

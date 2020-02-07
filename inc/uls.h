@@ -13,6 +13,12 @@
 #define MX_FIFO "\033[33m"
 #define MX_SOCKET "\033[32m"
 #define MX_STICKY "\033[42;30m"
+#define MX_NO_STICKY "\033[43;30m"
+#define MX_SET_UID "\033[41;30m"
+#define MX_SET_GID "\033[46;30m"
+#define MX_BLK "\033[46;34m"
+#define MX_CHR "\033[43;34m"
+
 #include "../libmx/inc/libmx.h"
 #include <sys/types.h>
 #include <dirent.h>
@@ -23,6 +29,7 @@
 #include <grp.h>
 #include <sys/xattr.h>
 #include <sys/acl.h>
+#include <errno.h>
 
 typedef struct s_array {
     char **names;
@@ -57,7 +64,7 @@ void mx_sort_ascii(int count, char **arr);
 int mx_print_flag_F(t_var *variable, t_array *dir, int i);
 void mx_if_sock_blk_fifo(t_array *dir, int i, t_var *variable, int num);
 void mx_print_total(t_array *dir, int num);
-void mx_print_symlink(t_array *dir, char *buf, int i);
+void mx_print_symlink(t_array *dir, int i);
 void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int num);//
 void mx_print_link_uid_gid_size(t_array *dir, int i, int num_of_files, t_var *variable);//
 int mx_acl_attr_if(int mode, char *str, char *curentFile);

@@ -1,13 +1,16 @@
 #include "../inc/uls.h"
 
-void mx_print_symlink(t_array *dir, char *buf, int i) {
-    buf = malloc(sizeof(char));
+void mx_print_symlink(t_array *dir, int i) {
+    char buf[PATH_MAX + 1];
+
     if ((dir->st[i]->st_mode & S_IFMT) == S_IFLNK){
+        //buf = mx_strnew(mx_strlen(dir->names[i]));
         mx_printstr(" -> ");
         readlink(dir->names[i], buf, 1024);
+        mx_printstr(dir->names[i]);
         mx_printstr(buf);
+        //free(buf);
     }
-    free(buf);
 }
 
 static char *mx_first_flag(t_var *variable) {
@@ -23,7 +26,6 @@ static char *mx_first_flag(t_var *variable) {
 void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int num) {
     struct timespec *a = malloc(sizeof(struct timespec));
     char *time_out = malloc(sizeof(char) * 13);
-    char *buf = NULL;
     char *temp = NULL;
     time_t cur_time = 0;
     int y = 0;
@@ -72,12 +74,10 @@ void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int nu
         mx_color_print(i, dir, variable, num);
     else
         mx_print_dir(i, dir, variable, num);
-    mx_print_symlink(dir, buf, i);
+    mx_print_symlink(dir, i);
     mx_printstr("\n");
     free(a);
     a = NULL;
-    free(time_out);
-    time_out = NULL;
-    free(str);
-    str = NULL;
+    mx_strdel(&time_out);
+    mx_strdel(&str);
 }

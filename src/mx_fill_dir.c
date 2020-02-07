@@ -33,20 +33,7 @@ void mx_fill_dir(t_array *dir, struct dirent *ep, int count, char *pathName) {
     dir->st[count] = (struct stat *) malloc(sizeof(struct stat));
     if (lstat(path, dir->st[count]) < 0)
         perror("uls:");
-    else if ((dir->st[count]->st_mode > 0)
-             && (S_IEXEC & dir->st[count]->st_mode)
-             && (S_IFMT & dir->st[count]->st_mode) != S_IFDIR) {
-        dir->type[count] = 0;
-    }
-    else if ((S_IFMT & dir->st[count]->st_mode) == S_IFREG) {
-        dir->type[count] = DT_REG;
-    }
-    else if ((S_IFMT & dir->st[count]->st_mode) == S_IFLNK) {
-        dir->type[count] = DT_LNK;
-    }
-    else {
-        dir->type[count] = ep->d_type;
-    }
+    dir->type[count] = ep->d_type;
     dir->names[count] = mx_strdup(ep->d_name);
     mx_strdel(&path);
 }

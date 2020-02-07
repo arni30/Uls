@@ -88,6 +88,6 @@ int main(int argc, char **argv) {
     free(variables);
     free(dir);
     mx_free_void_arr((void**)position, count);
-    //system("leaks -q a.out");
+    system("leaks -q a.out");
     return 0;
 }
