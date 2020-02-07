@@ -29,18 +29,16 @@ int mx_count_delim(t_array *dir, t_var *variable, int num_of_files) {
     int y = 0;
     for (int i = 0; i < num_of_files; i++) {
         y = mx_strlen(dir->names[i]);
-        if (mx_find_flag(variable->argc1, variable->args, 's') == 1)
+        if (variable->flag_s == 1)
             y += mx_count_max_sym(dir, 'b', num_of_files) + 1;
-        if (mx_find_flag(variable->argc1, variable->args, 'G') == 1 && y >= delim && (isatty(1) != 0 || mx_find_flag(variable->argc1, variable->args, 'C') == 0)) {
+        if (variable->flag_G == 1 && y >= delim && (isatty(1) != 0 || variable->flag_c == 0)) {
             delim = y + 1;
         }
         else if(y >= delim) {
             delim = (y/ 8) * 8 + 8;
         }
     }
-    if (mx_find_flag(variable->argc1, variable->args, 'F') == 1
-        && mx_find_flag(variable->argc1, variable->args, 'G') == 0
-        && mx_find_flag(variable->argc1, variable->args, 's') == 0)
+    if (variable->flag_F == 1 && variable->flag_G == 0 && variable->flag_s == 0)
         delim += 8;
     return delim;
 }

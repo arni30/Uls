@@ -12,7 +12,7 @@ void mx_print_dir(int i, t_array *dir, t_var *variable, int num) {
         }
         count++;
     }
-    if (mx_find_flag(variable->argc1, variable->args, 's') == 1 && (mx_find_flag(variable->argc1, variable->args, 'G') == 0
+    if (variable->flag_s == 1 && (variable->flag_G == 0
         || (isatty(1) == 0))){
         for(int j = mx_count_max_sym(dir, 'b', num) - mx_strlen(s_bl); j > 0; j--) {
             mx_printstr(" ");
@@ -23,7 +23,7 @@ void mx_print_dir(int i, t_array *dir, t_var *variable, int num) {
     mx_strdel(&s_bl);
     len = (len - n_a) / 2 + (len - n_a) % 2 + n_a;
     mx_printstr(s);
-    if (mx_find_flag(variable->argc1, variable->args, 'G') == 1) {
+    if (variable->flag_G == 1) {
         if (mx_print_flag_F(variable, dir, i) == -1)
             len--;
     }
@@ -31,10 +31,10 @@ void mx_print_dir(int i, t_array *dir, t_var *variable, int num) {
         if (mx_print_flag_F(variable, dir, i) == 1)
             len++;
     }
-    if (mx_find_flag(variable->argc1, variable->args, 's') == 1)
+    if (variable->flag_s == 1)
         len += mx_count_max_sym(dir, 'b', num) + 1;
     if (variable->delim != -1){
-        if (mx_find_flag(variable->argc1, variable->args, 'G') == 1 && isatty(1) == 1)
+        if (variable->flag_G == 1 && isatty(1) == 1)
             mx_printstr(MX_FILE);
         for(int i = variable->delim - len; i > 0; i--) {
             mx_printstr(" ");

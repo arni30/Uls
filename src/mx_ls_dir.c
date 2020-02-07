@@ -51,7 +51,7 @@ char **mx_input_files(t_var *variable, int *num_files) {
             closedir(dp);
         }
     }
-    if (mx_find_flag(variable->argc1, variable->args, 'f') == 0)
+    if (variable->flag_f == 0)
         mx_sort_ascii(*num_files, files);
     return files;
 }
@@ -115,10 +115,10 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
     if (flag_files == 1 || dp != NULL) {
         if (flag_files == 0 && dp != NULL) {
             while ((ep = readdir(dp)) != NULL) {
-                if ((mx_find_flag(variable->argc1, variable->args, 'a') == 1
-                     || mx_find_flag(variable->argc1, variable->args, 'f') == 1))
+                if ((variable->flag_a == 1
+                     || variable->flag_f == 1))
                     mx_fill_dir(dir, ep, num_of_files++, current_position);
-                else if (mx_find_flag(variable->argc1, variable->args, 'A') == 1
+                else if (variable->flag_A == 1
                          && (mx_isalpha(ep->d_name[1])
                              || ep->d_name[0] != '.')) {
                     mx_fill_dir(dir, ep, num_of_files++, current_position);
@@ -133,18 +133,16 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
             }
             mx_free_void_arr((void **) files, num_of_files);
         }
-        if (mx_find_flag(variable->argc1, variable->args, 'f') == 0)
-            mx_sort_dir(num_of_files, dir);
-        else if (mx_find_flag(variable->argc1, variable->args, 'S') == 1
-                 && mx_find_flag(variable->argc1, variable->args, 'f') == 0) {
+        if (variable->flag_S == 1 && variable->flag_f == 0) {
             mx_sort_dir_filesize(num_of_files, dir);
         }
-        if (mx_find_flag(variable->argc1, variable->args, 'G') == 1) {
+        else if (variable->flag_f == 0)
+            mx_sort_dir(num_of_files, dir);
+        if (variable->flag_G == 1) {
             g_fl = 1;
         }
-        if ((mx_find_flag(variable->argc1, variable->args, 'l') == 1
-            || mx_find_flag(variable->argc1, variable->args, 'o') == 1
-            || mx_find_flag(variable->argc1, variable->args, 'g') == 1) && (isatty(1) == 0 || isatty(1) == 1)) {
+        if ((variable->flag_l == 1 || variable->flag_o == 1
+            || variable->flag_g == 1) && (isatty(1) == 0 || isatty(1) == 1)) {
             mx_ls_flag_l(dir, g_fl, variable, current_position, num_of_files, flag_files);
         }
         else
@@ -157,7 +155,7 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
         mx_print_error(": Permission denied\n");
         mx_strdel(&temp_pos);
     }
-    if (mx_find_flag(variable->argc1, variable->args, 'R') == 1 && dp != NULL) {
+    if (variable->flag_R == 1 && dp != NULL) {
         mx_flag_R(num_of_files, dir, variable, current_position);
     }
     else

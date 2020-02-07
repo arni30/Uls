@@ -2,7 +2,7 @@
 #ifdef PATHFINDER_H
 
 #define MX_ERROR_FLAG "uls: illegal option -- "
-#define MX_ERROR_USAGE "usage: uls [-ACFGRafglos1] [file ...]\n"
+#define MX_ERROR_USAGE "usage: uls [-ACFGRSafglos1] [file ...]\n"
 #define MX_ERROR_DIR ": No such file or directory\n"
 #define MX_ULS "uls: " 
 
@@ -36,6 +36,21 @@ typedef struct s_var {
     int argc1;
     int gid_delim;
     int uid_delim;
+    int flag_A;
+    int flag_C;
+    int flag_F;
+    int flag_G;
+    int flag_R;
+    int flag_a;
+    int flag_f;
+    int flag_g;
+    int flag_l;
+    int flag_o;
+    int flag_s;
+    int flag_1;
+    int flag_u;
+    int flag_c;
+    int flag_S;
 } t_var;
 
 void mx_sort_ascii(int count, char **arr);

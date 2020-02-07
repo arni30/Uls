@@ -2,7 +2,7 @@
 
 int mx_flag_check(char *flag_, int flag_stop) {
     int flag = -2;
-    char *us_f = "ACFGRafglos1uc";//"ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1";
+    char *us_f = "ACFGRSafglosuc1";//"ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1";
 
     if (flag_[0] == '-' && flag_stop == 0) {
         for (int j = 1; flag_[j] != '\0'; j++) {

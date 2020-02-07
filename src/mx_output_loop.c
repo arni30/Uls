@@ -4,7 +4,7 @@ void mx_output_loop(t_array *dir, t_var *variable, int win_width,
     int e_line = win_width / variable->delim;
     int e_col = 0;
     //int isat = variable->delim;
-    if (mx_find_flag(variable->argc1, variable->args, '1') == 1 || e_line < 1)
+    if (variable->flag_1 == 1 || e_line < 1)
         e_line = num_of_files;
     e_line = count_el_in_line(num_of_files, e_line);
     e_col = (num_of_files / e_line);

@@ -97,17 +97,15 @@ static void mx_gid_uid_no(t_array *dir, int i, int num_of_files) {
 
 
 void mx_print_link_uid_gid_size(t_array *dir, int i, int num_of_files, t_var *variable) {
-    int flag_o = mx_find_flag(variable->argc1, variable->args, 'o');
-    int flag_g = mx_find_flag(variable->argc1, variable->args, 'g');
     mx_printint(dir->st[i]->st_nlink);
     mx_printstr(" ");
-    if (flag_o == 0 && flag_g == 0)
+    if (variable->flag_o == 0 && variable->flag_g == 0)
         mx_uid_gid_yes(dir, i, num_of_files, variable);
-    else if (flag_o == 0 && flag_g == 1)
+    else if (variable->flag_o == 0 && variable->flag_g == 1)
         mx_gid_yes(dir, i, num_of_files, variable);
-    else if (flag_o == 1 && flag_g == 0)
+    else if (variable->flag_o == 1 && variable->flag_g == 0)
             mx_uid_yes(dir, i, num_of_files, variable);
-    else if (flag_o == 1 && flag_g == 1)
+    else if (variable->flag_o == 1 && variable->flag_g == 1)
         mx_gid_uid_no(dir, i, num_of_files);
 
 

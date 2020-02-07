@@ -31,17 +31,17 @@ void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int nu
     variable->delim = 0;
     char *str = mx_first_flag(variable);
 
-    if (mx_find_flag(variable->argc1, variable->args, 'u')
-        && (mx_find_flag(variable->argc1, variable->args, 'c'))) {
+    if (variable->flag_u == 1
+        && (variable->flag_c) == 1) {
         if (mx_strchr(str, 'u') > mx_strchr(str, 'c'))
             a->tv_sec = dir->st[i]->st_atimespec.tv_sec;
         else
             a->tv_sec = dir->st[i]->st_ctimespec.tv_sec;
     }
-    else if (mx_find_flag(variable->argc1, variable->args, 'u')) {
+    else if (variable->flag_u == 1) {
         a->tv_sec = dir->st[i]->st_atimespec.tv_sec;
     }
-    else if (mx_find_flag(variable->argc1, variable->args, 'c')) {
+    else if (variable->flag_c == 1) {
         a->tv_sec = dir->st[i]->st_ctimespec.tv_sec;
     }
     else
@@ -68,7 +68,7 @@ void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int nu
     time_out[y] = '\0';
     mx_printstr(time_out);
     mx_printstr(" ");
-    if (flag_G == 1)
+    if (flag_G == 1 && isatty(1) == 1)
         mx_color_print(i, dir, variable, num);
     else
         mx_print_dir(i, dir, variable, num);

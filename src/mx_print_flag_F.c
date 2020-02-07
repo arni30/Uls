@@ -1,7 +1,7 @@
 #include "../inc/uls.h"
 
 int mx_print_flag_F(t_var *variable, t_array *dir, int i) {
-    if (mx_find_flag(variable->argc1, variable->args, 'F') == 1) {
+    if (variable->flag_F == 1) {
         if(isatty(1) == 1)
             mx_printstr(MX_FILE);
         if ((dir->st[i]->st_mode & S_IFMT) == S_IFDIR)

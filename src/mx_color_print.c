@@ -3,7 +3,7 @@
 void mx_color_print(int i, t_array *dir, t_var *variable, int num) {
     char *s_bl = mx_itoa(dir->st[i]->st_blocks);
 
-    if (mx_find_flag(variable->argc1, variable->args, 's') == 1){
+    if (variable->flag_s == 1){
         for(int j = mx_count_max_sym(dir, 'b', num) - mx_strlen(s_bl); j > 0; j--) {
             mx_printstr(" ");
         }
