@@ -1,4 +1,5 @@
 #include "../inc/uls.h"
+
 void mx_realloc_dir(t_array *dir, int count) {
     dir->st = mx_realloc(dir->st, sizeof(struct stat *) * (count + 1));
     dir->type = mx_realloc(dir->type, sizeof(unsigned char) * (count + 1));
@@ -12,8 +13,8 @@ void mx_fill_file_dir(char *file, t_array *dir, int count) {
     if (lstat(path, dir->st[count]) < 0)
         perror("uls:");
     else if ((dir->st[count]->st_mode > 0)
-        && (S_IEXEC & dir->st[count]->st_mode)
-        && (S_IFMT & dir->st[count]->st_mode) != S_IFDIR) {
+             && (S_IEXEC & dir->st[count]->st_mode)
+             && (S_IFMT & dir->st[count]->st_mode) != S_IFDIR) {
         dir->type[count] = 0;
     }
     else if ((S_IFMT & dir->st[count]->st_mode) == S_IFREG) {
@@ -33,8 +34,8 @@ void mx_fill_dir(t_array *dir, struct dirent *ep, int count, char *pathName) {
     if (lstat(path, dir->st[count]) < 0)
         perror("uls:");
     else if ((dir->st[count]->st_mode > 0)
-        && (S_IEXEC & dir->st[count]->st_mode)
-        && (S_IFMT & dir->st[count]->st_mode) != S_IFDIR) {
+             && (S_IEXEC & dir->st[count]->st_mode)
+             && (S_IFMT & dir->st[count]->st_mode) != S_IFDIR) {
         dir->type[count] = 0;
     }
     else if ((S_IFMT & dir->st[count]->st_mode) == S_IFREG) {
@@ -65,6 +66,7 @@ char *mx_path(char *pathName, char *file, int flag) {
     }
     else {
         path = mx_realloc(pathName, sizeof(char) * (mx_strlen(pathName) + mx_strlen(file) + 2));
+        //if (mx_strcmp(pathName, "/") != 0)
         path = mx_strcat(path, "/");
         path = mx_strcat(path, file);
         return path;

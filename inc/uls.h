@@ -34,6 +34,8 @@ typedef struct s_var {
     int delim;
     char **args;
     int argc1;
+    int gid_delim;
+    int uid_delim;
 } t_var;
 
 void mx_sort_ascii(int count, char **arr);

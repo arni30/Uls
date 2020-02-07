@@ -1,5 +1,22 @@
 #include "../inc/uls.h"
 
+char *mx_strrchr(char *str, int ch) {
+    char *temp = NULL;
+    int i = 0;
+    int  index = 0;
+
+    while(str[i]) {
+        if (str[i] == ch) {
+            index = i;
+        }
+        i++;
+    }
+    temp = mx_strnew(mx_strlen(str) - index - 1);
+    for (int j = index + 1, k = 0; str[j]; j++, k++)
+        temp[k] = str[j];
+    return temp;
+}
+
 int mx_file_exist(char *file) {
     struct stat *st = (struct stat*) malloc(sizeof(struct stat));
     int flag = 0;
@@ -71,7 +88,8 @@ void mx_flag_R(int num_of_files, t_array *dir, t_var *variable, char *current_po
         position = mx_strdup(current_position);
         mx_printstr("\n");
         position = mx_realloc(position, sizeof(char) * (mx_strlen(current_position) + mx_strlen(dir_files[k]) + 2));
-        position = mx_strcat(position, "/");
+        if (mx_strcmp(position, "/") != 0)
+            position = mx_strcat(position, "/");
         position = mx_strcat(position, dir_files[k]);
         mx_printstr(position);
         mx_printstr(":\n");
@@ -107,7 +125,6 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
                 } else if (ep->d_name[0] != '.')
                     mx_fill_dir(dir, ep, num_of_files++, current_position);
             }
-            closedir(dp);
         }
         else if (flag_files == 1) {
             files = mx_input_files(variable, &num_of_files);
@@ -134,16 +151,19 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
             mx_output(dir, variable, num_of_files, flag_files);
     }
     else {
+        char *temp_pos = mx_strrchr(current_position, (unsigned char)'/');
         mx_print_error("uls: ");//ls: App Store.app: Permission denied
-        mx_print_error(current_position);
+        mx_print_error(temp_pos);
         mx_print_error(": Permission denied\n");
-
+        mx_strdel(&temp_pos);
     }
-    if (mx_find_flag(variable->argc1, variable->args, 'R') == 1) {
+    if (mx_find_flag(variable->argc1, variable->args, 'R') == 1 && dp != NULL) {
         mx_flag_R(num_of_files, dir, variable, current_position);
     }
     else
         mx_free_dir(dir, num_of_files);
+    if(dp != NULL)
+        closedir(dp);
 }
 
 
