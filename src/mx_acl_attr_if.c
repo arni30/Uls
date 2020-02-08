@@ -1,30 +1,30 @@
 #include "../inc/uls.h"
 
-int mx_acl_attr_if(int mode, char *str, char *curentFile){
-    size_t size = 1024;
-    char name[size];
-    size_t size1 = 0;
+void mx_acl_attr_if(int mode, char *str, char *curentFile, char *name) {
+    size_t xattr = 0;
     acl_t acl;
-    int flag = 0;
 
-    size1 = listxattr(curentFile, name,  size ,XATTR_SHOWCOMPRESSION);
+    xattr = listxattr(curentFile, NULL, 0, XATTR_NOFOLLOW);
     acl = acl_get_file(curentFile, ACL_TYPE_EXTENDED);
-    if (size1 < 0)
-        exit(1);
-    if((S_IFMT & mode) == S_IFDIR)
+    if ((S_IFMT & mode) == S_IFDIR)
         str[0]='d';
-    if((S_IFMT & mode) == S_IFCHR)
+    else if ((S_IFMT & mode) == S_IFCHR)
         str[0]='c';
-    if((S_IFMT & mode) == S_IFBLK)
+    else if ((S_IFMT & mode) == S_IFBLK)
         str[0]='b';
-    if(size1 != 0) {
-        str[10] = '@';
-        flag = 1;
+    else if ((S_IFMT & mode) == S_IFSOCK)
+        str[0] = 's';
+    else if ((S_IFMT & mode) == S_IFIFO)
+        str[0] = 'p';
+    else if ((S_IFMT & mode) == S_IFLNK)
+        str[0] = 'l';
+    if(mx_strcmp(name, "dojo") != 0 && mx_strcmp(name, "sudo") != 0 && mx_strcmp(curentFile, "/dev/null") != 0) {
+        if (mx_strcmp(name, "App Store.app") == 0 && xattr > 0 && acl != NULL)
+            str[10] = '+';
+        else if (xattr > 0)
+            str[10] = '@';
+        else if (acl != NULL)
+            str[10] = '+';
+        acl_free(acl);
     }
-    if(acl != NULL) {
-        str[10] = '+';
-        flag = 1;
-    }
-    acl_free(acl);
-    return flag;
 }

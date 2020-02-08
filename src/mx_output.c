@@ -1,6 +1,6 @@
 #include "../inc/uls.h"
 
-void mx_output(t_array *dir, t_var *variable, int num_of_files, int flag_files) {
+void mx_output(t_array *dir, t_var *variable, int num_of_files) {
     int win_width = 0;
 
     win_width = mx_winsize();
@@ -8,7 +8,7 @@ void mx_output(t_array *dir, t_var *variable, int num_of_files, int flag_files) 
         win_width = 80;
     variable->delim = mx_count_delim(dir, variable, num_of_files);
 
-    if (variable->flag_s == 1 && flag_files == 0) {
+    if (variable->flag_s == 1 && variable->flag_files == 0) {
         mx_print_total(dir, num_of_files);
     }
     if (variable->flag_1 == 1)

@@ -2,7 +2,7 @@
 #ifdef PATHFINDER_H
 
 #define MX_ERROR_FLAG "uls: illegal option -- "
-#define MX_ERROR_USAGE "usage: uls [-ACFGRSafglos1] [file ...]\n"
+#define MX_ERROR_USAGE "usage: uls [-ACFGRSafgrlos1] [file ...]\n"
 #define MX_ERROR_DIR ": No such file or directory\n"
 #define MX_ULS "uls: " 
 
@@ -18,6 +18,9 @@
 #define MX_SET_GID "\033[46;30m"
 #define MX_BLK "\033[46;34m"
 #define MX_CHR "\033[43;34m"
+
+#define MX_MAJOR(x)        ((int32_t)(((u_int32_t)(x) >> 24) & 0xff))
+#define MX_MINOR(x)        ((int32_t)((x) & 0xffffff))
 
 #include "../libmx/inc/libmx.h"
 #include <sys/types.h>
@@ -58,27 +61,30 @@ typedef struct s_var {
     int flag_u;
     int flag_c;
     int flag_S;
+    int flag_r;
+    int flag_files;
+    int count;
 } t_var;
 
 void mx_sort_ascii(int count, char **arr);
 int mx_print_flag_F(t_var *variable, t_array *dir, int i);
 void mx_if_sock_blk_fifo(t_array *dir, int i, t_var *variable, int num);
 void mx_print_total(t_array *dir, int num);
-void mx_print_symlink(t_array *dir, int i);
-void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int num);//
+void mx_print_symlink(t_array *dir, int i, char *position);
+void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int num, char *position);//
 void mx_print_link_uid_gid_size(t_array *dir, int i, int num_of_files, t_var *variable);//
-int mx_acl_attr_if(int mode, char *str, char *curentFile);
+void mx_acl_attr_if(int mode, char *str, char *curentFile, char *name);
 void mx_license_if(int mode, char *str);
 void mx_print_mode(t_array *dir, int i, char *position, int num_of_files);//
 char *mx_uid_to_name(t_array *dir, int n);
-void mx_ls_flag_l(t_array *dir, int flag_G, t_var *variable, char *position, int num_of_files, int flag_files);
+void mx_ls_flag_l(t_array *dir, int flag_G, t_var *variable, char *position, int num_of_files);
 void mx_output_loop(t_array *dir, t_var *variable, int win_width,
         void mx_print_output(int i, t_array *dir, t_var *variable, int num), int num_of_files);
 void mx_free_dir(t_array *dir, int num_of_files);
-void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_files);
+void mx_ls_dir(char *current_position, t_array *dir, t_var *variable);
 void mx_free_void_arr(void **arr, int lines);
 int mx_find_flag(int argc, char **flags, char flag);
-void mx_output(t_array *dir, t_var *variable, int num_of_files, int flag_files);
+void mx_output(t_array *dir, t_var *variable, int num_of_files);
 void mx_print_dir(int i, t_array *dir, t_var *variable, int num);
 void mx_print_error(char *str);
 void mx_print_error_flag(int index1, int index2, char **flags);
@@ -103,6 +109,8 @@ void mx_fill_file_dir(char *file, t_array *dir, int count);
 int mx_flag_check(char *flag_, int flag_stop);
 char **mx_error_check_loop(int argc, char **flags, int *flag_stop, int *count);
 char *mx_gid_to_name(t_array *dir, int n);
+void mx_sort_reverse(int count, char **arr);
+void mx_sort_dir_reverse(int count, t_array *dir);
 //int mb_strlen(char *source);
 //int mx_mb_loop(unsigned char n, char *source, char *m);
 //int mx_switch_len(int n, int *i, char *source);

@@ -1,29 +1,29 @@
 #include "../inc/uls.h"
 
-void mx_print_symlink(t_array *dir, int i) {
-    char buf[PATH_MAX + 1];
+void mx_print_symlink(t_array *dir, int i, char *position) {
+    char buf[1024];
+    ssize_t len = 0;
 
     if ((dir->st[i]->st_mode & S_IFMT) == S_IFLNK){
-        //buf = mx_strnew(mx_strlen(dir->names[i]));
         mx_printstr(" -> ");
-        readlink(dir->names[i], buf, 1024);
-        mx_printstr(dir->names[i]);
+        if ((len = readlink(position, buf, 1024)) == -1)
+            perror("readlink");
+        buf[len] = '\0';
         mx_printstr(buf);
-        //free(buf);
     }
 }
 
 static char *mx_first_flag(t_var *variable) {
-    char *str = malloc(sizeof(str));
-    for (int i = 1; i < variable->argc1; i++) {
+    char *str = mx_strdup(variable->args[1]);
+
+    for (int i = 2; i < variable->argc1; i++) {
         str = mx_realloc(str, sizeof(char) * (mx_strlen(str) + mx_strlen(variable->args[i]) + 1));
         str = mx_strcat(str, variable->args[i]);
     }
     return str;
 }
 
-
-void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int num) {
+void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int num, char *position) {
     struct timespec *a = malloc(sizeof(struct timespec));
     char *time_out = malloc(sizeof(char) * 13);
     char *temp = NULL;
@@ -33,17 +33,16 @@ void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int nu
     variable->delim = 0;
     char *str = mx_first_flag(variable);
 
-    if (variable->flag_u == 1
-        && (variable->flag_c) == 1) {
+    if (variable->flag_u && variable->flag_c){
         if (mx_strchr(str, 'u') > mx_strchr(str, 'c'))
             a->tv_sec = dir->st[i]->st_atimespec.tv_sec;
         else
             a->tv_sec = dir->st[i]->st_ctimespec.tv_sec;
     }
-    else if (variable->flag_u == 1) {
+    else if (variable->flag_u) {
         a->tv_sec = dir->st[i]->st_atimespec.tv_sec;
     }
-    else if (variable->flag_c == 1) {
+    else if (variable->flag_c) {
         a->tv_sec = dir->st[i]->st_ctimespec.tv_sec;
     }
     else
@@ -74,10 +73,13 @@ void mx_print_time_name(t_array *dir, int i, int flag_G, t_var *variable, int nu
         mx_color_print(i, dir, variable, num);
     else
         mx_print_dir(i, dir, variable, num);
-    mx_print_symlink(dir, i);
+    mx_print_symlink(dir, i, position);
     mx_printstr("\n");
     free(a);
     a = NULL;
-    mx_strdel(&time_out);
-    mx_strdel(&str);
+    free(time_out);
+    time_out = NULL;
+    free(str);
+    str = NULL;
 }
+

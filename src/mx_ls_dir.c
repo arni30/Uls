@@ -1,5 +1,23 @@
 #include "../inc/uls.h"
 
+void mx_sort_dir_reverse(int count, t_array *dir) {
+    struct stat *temp = NULL;
+
+    for (int i = 0, j = count - 1; i < count / 2; i++, j--) {
+        mx_swaps_arr(dir->names, i, j);
+        temp = dir->st[i];
+        dir->st[i] = dir->st[j];
+        dir->st[j] = temp;
+        mx_swap_char((char*)&dir->type[i], (char*)&dir->type[j]);
+    }
+}
+
+void mx_sort_reverse(int count, char **arr) {
+    for (int i = 0, j = count - 1; i < count / 2; i++, j--) {
+        mx_swaps_arr(arr, i, j);
+    }
+}
+
 char *mx_strrchr(char *str, int ch) {
     char *temp = NULL;
     int i = 0;
@@ -20,7 +38,7 @@ char *mx_strrchr(char *str, int ch) {
 int mx_file_exist(char *file) {
     struct stat *st = (struct stat*) malloc(sizeof(struct stat));
     int flag = 0;
-    char *path = mx_path(file, NULL, -1);
+    char *path = mx_path(NULL, file, 1);
 
     if ((lstat(path, st) != -1))
         flag = 1;
@@ -34,13 +52,16 @@ char **mx_input_files(t_var *variable, int *num_files) {
     DIR *dp;
     int flag_stop = 0;
     char **files = malloc(sizeof(char*));
+    char *path = NULL;
+    char buf[1024];
 
     for (int i = 1; i < variable->argc1; i++) {
+        path = mx_path(NULL, variable->args[i], 1);
         dp = opendir(variable->args[i]);
         if (mx_strcmp("--",variable->args[i]) == 0)
             flag_stop = 1;
         if (((variable->args[i][0] != '-' || mx_strcmp(variable->args[i], "-") == 0) || flag_stop == 1)
-            && dp == NULL && mx_file_exist(variable->args[i]) == 1) {
+            && (dp == NULL || (variable->flag_l == 1 && readlink(path, buf, 1024) != -1)) && mx_file_exist(variable->args[i]) == 1) {
             files = mx_realloc(files, sizeof(char*) * ((*num_files) + 1));
             files[*num_files] = mx_strdup(variable->args[i]);
             (*num_files)++;
@@ -50,9 +71,13 @@ char **mx_input_files(t_var *variable, int *num_files) {
                 flag_stop = 1;
             closedir(dp);
         }
+        mx_strdel(&path);
     }
-    if (variable->flag_f == 0)
+    if (variable->flag_f == 0) {
         mx_sort_ascii(*num_files, files);
+        if (variable->flag_r == 1)
+            mx_sort_reverse(*num_files, files);
+    }
     return files;
 }
 
@@ -87,13 +112,16 @@ void mx_flag_R(int num_of_files, t_array *dir, t_var *variable, char *current_po
     for (int k = 0; k < i; k++) {
         position = mx_strdup(current_position);
         mx_printstr("\n");
-        position = mx_realloc(position, sizeof(char) * (mx_strlen(current_position) + mx_strlen(dir_files[k]) + 2));
-        if (mx_strcmp(position, "/") != 0)
+        position = mx_realloc(position, sizeof(char) * (mx_strlen(current_position) + mx_strlen(dir_files[k]) + 1));
+        if (mx_strcmp(current_position, "/") != 0) {
             position = mx_strcat(position, "/");
+            position = mx_realloc(position, sizeof(char) * (mx_strlen(current_position) + mx_strlen(dir_files[k]) + 2));
+        }
         position = mx_strcat(position, dir_files[k]);
         mx_printstr(position);
         mx_printstr(":\n");
-        mx_ls_dir(position, dir, variable, 0);
+        variable->flag_files = 0;
+        mx_ls_dir(position, dir, variable);
         mx_strdel(&position);
     }
     if (i > 0) {
@@ -104,7 +132,7 @@ void mx_flag_R(int num_of_files, t_array *dir, t_var *variable, char *current_po
         dir_files = NULL;
 }
 
-void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_files) {
+void mx_ls_dir(char *current_position, t_array *dir, t_var *variable) {
     int g_fl = 0;
     struct dirent *ep = NULL;
     errno = 0;
@@ -114,8 +142,8 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
     char **files = NULL;
 
     mx_malloc_dir(dir);
-    if (flag_files == 1 || dp != NULL) {
-        if (flag_files == 0 && dp != NULL) {
+    if (variable->flag_files == 1 || dp != NULL) {
+        if (variable->flag_files == 0 && dp != NULL) {
             while ((ep = readdir(dp)) != NULL) {
                 if ((variable->flag_a == 1
                      || variable->flag_f == 1))
@@ -128,7 +156,7 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
                     mx_fill_dir(dir, ep, num_of_files++, current_position);
             }
         }
-        else if (flag_files == 1) {
+        else if (variable->flag_files == 1) {
             files = mx_input_files(variable, &num_of_files);
             for (int i = 0; i < num_of_files; i++) {
                 mx_fill_file_dir(files[i], dir, i);
@@ -140,15 +168,17 @@ void mx_ls_dir(char *current_position, t_array *dir, t_var *variable, int flag_f
         }
         else if (variable->flag_f == 0)
             mx_sort_dir(num_of_files, dir);
+        if (variable->flag_f == 0 && variable->flag_r == 1)
+            mx_sort_dir_reverse(num_of_files, dir);
         if (variable->flag_G == 1) {
             g_fl = 1;
         }
         if ((variable->flag_l == 1 || variable->flag_o == 1
             || variable->flag_g == 1) && (isatty(1) == 0 || isatty(1) == 1)) {
-            mx_ls_flag_l(dir, g_fl, variable, current_position, num_of_files, flag_files);
+            mx_ls_flag_l(dir, g_fl, variable, current_position, num_of_files);
         }
         else
-            mx_output(dir, variable, num_of_files, flag_files);
+            mx_output(dir, variable, num_of_files);
     }
     else {
         char *temp_pos = mx_strrchr(current_position, (unsigned char)'/');

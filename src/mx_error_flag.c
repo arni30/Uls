@@ -2,7 +2,7 @@
 
 int mx_flag_check(char *flag_, int flag_stop) {
     int flag = -2;
-    char *us_f = "ACFGRSafglosuc1";//"ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1";
+    char *us_f = "ACFGRSafgrlosuc1";//"ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1";
 
     if (flag_[0] == '-' && flag_stop == 0) {
         for (int j = 1; flag_[j] != '\0'; j++) {
@@ -25,13 +25,16 @@ int mx_flag_check(char *flag_, int flag_stop) {
 char **mx_error_check_loop(int argc, char **flags, int *flag_stop, int *count) {
     DIR *dp;
     char **error_flags = malloc(sizeof(char*));
+    char *path = NULL;
+    char buf[1024];
 
     for (int i = 1; i < argc; i++) {
+        path = mx_path(NULL, flags[i], 1);
         dp = opendir(flags[i]);
         if (mx_strcmp("--",flags[i]) == 0)
             *flag_stop = 1;
         if (((flags[i][0] != '-' || mx_strcmp(flags[i], "-") == 0) || *flag_stop == 1)
-            && dp == NULL && mx_strcmp("--",flags[i]) != 0) {
+            && (dp == NULL || (mx_find_flag(argc, flags, 'l') == 1 && readlink(path, buf, 1024) != -1))  && mx_strcmp("--",flags[i]) != 0) {
             error_flags = mx_realloc(error_flags, sizeof(char*) * (*count + 1));
             error_flags[(*count)++] = mx_strdup(flags[i]);
         }
@@ -42,6 +45,12 @@ char **mx_error_check_loop(int argc, char **flags, int *flag_stop, int *count) {
                 *flag_stop = 1;
             closedir(dp);
         }
+        mx_strdel(&path);
+    }
+    if (mx_find_flag(argc, flags, 'f') == 0) {
+        mx_sort_ascii(*count, error_flags);
+        if ((mx_find_flag(argc, flags, 'r') == 1))
+            mx_sort_reverse(*count, error_flags);
     }
     return error_flags;
 }
@@ -52,8 +61,6 @@ int mx_error_flag(int argc, char **flags) {
     int flag_stop = 0;
     char **error_flags = mx_error_check_loop(argc, flags, &flag_stop, &count);;
 
-    if (mx_find_flag(argc, flags, 'f') == 0)
-        mx_sort_ascii(count, error_flags);
     for (int j = 0; j != count; j++) {
         if (mx_file_exist(error_flags[j]) == 0)
             mx_error_dir(error_flags, j);

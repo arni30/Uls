@@ -2,3 +2,6 @@
 .idea
 CMakeLists.txt
 cmake-build-debug
+*.zip
+*.a
+*.txt

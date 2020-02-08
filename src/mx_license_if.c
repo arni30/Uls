@@ -17,6 +17,11 @@ void mx_license_if(int mode, char *str) {
         str[7]='r';
     if(mode & S_IWOTH)
         str[8]='w';
-    if(mode & S_IXOTH)
+    if (S_ISVTX & mode && mode & S_ISTXT)
+        str[9] = 't';
+    else if(mode & S_IXOTH)
         str[9]='x';
+
 }
+
+
