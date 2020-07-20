@@ -1,6 +1,6 @@
 #include "../inc/uls.h"
 
-char *mx_gid_to_name(t_array *dir, int n){
+char *mx_gid_to_name(t_array *dir, int n) {
     struct group *pw_ptr;
     char *ptr = NULL;
 

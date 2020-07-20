@@ -7,13 +7,14 @@ OBJ = obj/mx_printchar.o  obj/mx_binary_search.o obj/mx_bubble_sort.o obj/mx_cou
 DIR = obj/
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 
-all: install clean
+all: install
 
 install:
-	@mkdir obj
+	@mkdir -p obj
 	@clang $(CFLAGS) -c $(SRC) 
 	@cp $(SRCOB) $(DIR)
 	@ar -rcs libmx.a $(OBJ)
+	@rm -rf $(SRCOB)
 
 uninstall: clean
 	@rm -rf $(NAME)
